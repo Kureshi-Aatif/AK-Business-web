@@ -1,0 +1,304 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<main id="main-content">
+  <!-- Breadcrumbs -->
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li aria-current="page">Contact Us</li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Page Header -->
+  <section class="section section--ice" style="padding-bottom: 40px;">
+    <div class="container text-center">
+      <div class="section-header reveal" style="margin-bottom: 0;">
+        <span class="badge badge--orange section-badge">Get In Touch</span>
+        <h1>Contact AK Digital Studio in Surat, Gujarat</h1>
+        <p>
+          Have questions about web development, pricing, or local SEO? We’re based in Surat, Gujarat and ready to assist you.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Grid: Form + Navy Info Card & 3-Step Process -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-layout-grid">
+        <!-- Col 1: Contact Form -->
+        <div class="form-container-card edge-corner-frame reveal">
+          <h2 style="font-size: 1.6rem; margin-bottom: 8px;">Send a Direct Message</h2>
+          <p style="margin-bottom: 24px; font-size: 0.95rem;">
+            Fill out the form below for general inquiries or partnership discussions.
+          </p>
+
+          <% if (typeof successRef !== 'undefined' && successRef) { %>
+            <div class="form-success-card">
+              <div class="success-icon-badge">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <h2 style="margin-bottom: 12px;">Message Received!</h2>
+              <p style="color: var(--color-slate); font-size: 1.05rem;">
+                Thank you for contacting us. Your message has been routed to Aatif Kureshi.
+              </p>
+              <div class="ref-token-pill">
+                <%= successRef %>
+              </div>
+              <p style="font-size: 0.95rem; color: var(--color-slate); margin-bottom: 24px;">
+                You can also chat directly on WhatsApp using your Reference ID:
+              </p>
+              <a href="https://wa.me/<%= business.whatsappNumber.replace(/[^0-9]/g, '') %>?text=<%= encodeURIComponent('Hello Aatif, I sent a contact message with Reference ID: ' + successRef) %>" target="_blank" rel="noopener" class="btn btn--primary btn--lg" style="background: #25D366;">
+                Chat on WhatsApp
+              </a>
+            </div>
+          <% } else { %>
+            <form id="contact-form" method="POST" action="/contact" novalidate>
+              <!-- CSRF Protection & Anti-Spam Honeypots -->
+              <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+              <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off">
+              <input type="text" name="website_url_hp" class="hp-field" tabindex="-1" autocomplete="off">
+              <input type="hidden" name="_form_time" value="">
+
+              <% if (typeof errors !== 'undefined' && errors.form) { %>
+                <div class="form-general-error" style="background: #FEE2E2; color: #991B1B; padding: 12px 16px; border-radius: 8px; margin-bottom: 20px; font-weight: 600;">
+                  <%= errors.form %>
+                </div>
+              <% } %>
+
+              <div class="form-grid">
+                <!-- Name -->
+                <div class="form-group">
+                  <label for="c_name" class="form-label">Your Name <span class="required">*</span></label>
+                  <input 
+                    type="text" 
+                    id="c_name" 
+                    name="name" 
+                    class="form-control <%= (typeof errors !== 'undefined' && errors.name) ? 'is-invalid' : '' %>" 
+                    placeholder="e.g. Sameer Patel" 
+                    value="<%= (typeof oldData !== 'undefined' && oldData.name) ? oldData.name : '' %>" 
+                    required
+                  >
+                  <div class="form-error-msg <%= (typeof errors !== 'undefined' && errors.name) ? 'is-visible' : '' %>"><%= (typeof errors !== 'undefined' && errors.name) ? errors.name : '' %></div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                  <label for="c_email" class="form-label">Email Address <span class="required">*</span></label>
+                  <input 
+                    type="email" 
+                    id="c_email" 
+                    name="email" 
+                    class="form-control <%= (typeof errors !== 'undefined' && errors.email) ? 'is-invalid' : '' %>" 
+                    placeholder="e.g. sameer@example.com" 
+                    value="<%= (typeof oldData !== 'undefined' && oldData.email) ? oldData.email : '' %>" 
+                    required
+                  >
+                  <div class="form-error-msg <%= (typeof errors !== 'undefined' && errors.email) ? 'is-visible' : '' %>"><%= (typeof errors !== 'undefined' && errors.email) ? errors.email : '' %></div>
+                </div>
+
+                <!-- Phone (Optional) -->
+                <div class="form-group">
+                  <label for="c_phone" class="form-label">Phone Number (Optional)</label>
+                  <input 
+                    type="tel" 
+                    id="c_phone" 
+                    name="phone" 
+                    class="form-control <%= (typeof errors !== 'undefined' && errors.phone) ? 'is-invalid' : '' %>" 
+                    placeholder="e.g. 98765 43210" 
+                    value="<%= (typeof oldData !== 'undefined' && oldData.phone) ? oldData.phone : '' %>"
+                  >
+                  <div class="form-error-msg <%= (typeof errors !== 'undefined' && errors.phone) ? 'is-visible' : '' %>"><%= (typeof errors !== 'undefined' && errors.phone) ? errors.phone : '' %></div>
+                </div>
+
+                <!-- Subject -->
+                <div class="form-group">
+                  <label for="c_subject" class="form-label">Subject <span class="required">*</span></label>
+                  <input 
+                    type="text" 
+                    id="c_subject" 
+                    name="subject" 
+                    class="form-control <%= (typeof errors !== 'undefined' && errors.subject) ? 'is-invalid' : '' %>" 
+                    placeholder="e.g. Quick question about Standard Catalogue" 
+                    value="<%= (typeof oldData !== 'undefined' && oldData.subject) ? oldData.subject : '' %>" 
+                    required
+                  >
+                  <div class="form-error-msg <%= (typeof errors !== 'undefined' && errors.subject) ? 'is-visible' : '' %>"><%= (typeof errors !== 'undefined' && errors.subject) ? errors.subject : '' %></div>
+                </div>
+
+                <!-- Message -->
+                <div class="form-group">
+                  <label for="c_message" class="form-label">Message <span class="required">*</span></label>
+                  <textarea 
+                    id="c_message" 
+                    name="message" 
+                    rows="4" 
+                    class="form-control <%= (typeof errors !== 'undefined' && errors.message) ? 'is-invalid' : '' %>" 
+                    placeholder="How can we help your business today?" 
+                    required
+                  ><%= (typeof oldData !== 'undefined' && oldData.message) ? oldData.message : '' %></textarea>
+                  <div class="form-error-msg <%= (typeof errors !== 'undefined' && errors.message) ? 'is-visible' : '' %>"><%= (typeof errors !== 'undefined' && errors.message) ? errors.message : '' %></div>
+                </div>
+
+                <!-- Consent -->
+                <div class="form-group">
+                  <label class="form-checkbox-label">
+                    <input type="checkbox" name="consent" value="true" required checked>
+                    <span>I agree to allow AK Digital Studio to contact me in response to this message.</span>
+                  </label>
+                  <div class="form-error-msg <%= (typeof errors !== 'undefined' && errors.consent) ? 'is-visible' : '' %>"><%= (typeof errors !== 'undefined' && errors.consent) ? errors.consent : '' %></div>
+                </div>
+
+                <!-- Submit Button -->
+                <div style="margin-top: 10px;">
+                  <button type="submit" class="btn btn--primary btn--lg" style="width: 100%;">
+                    <span>Send Message</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <div id="contact-form-success" class="form-success-card" style="display: none;">
+              <div class="success-icon-badge">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <h2 style="margin-bottom: 12px;">Message Received!</h2>
+              <p style="color: var(--color-slate); font-size: 1.05rem;">
+                Thank you for reaching out. We have logged your message and sent a copy to your email.
+              </p>
+              <div class="ref-token-pill ref-id-display">
+                CNT-2026-PENDING
+              </div>
+              <p style="font-size: 0.95rem; color: var(--color-slate); margin-bottom: 24px;">
+                You can also message us directly on WhatsApp referencing this ID:
+              </p>
+              <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                <a href="https://wa.me/<%= business.whatsappNumber.replace(/[^0-9]/g, '') %>?text=<%= encodeURIComponent('Hello Aatif, I just submitted a message on your contact form.') %>" target="_blank" rel="noopener" class="btn btn--primary btn--lg btn-wa-action" style="background: #25D366;">
+                  <span>Continue on WhatsApp</span>
+                </a>
+                <a href="/" class="btn btn--outline btn--lg">Home</a>
+              </div>
+            </div>
+          <% } %>
+        </div>
+
+        <!-- Col 2: Studio Information & 3-Step Process -->
+        <div style="display: flex; flex-direction: column; gap: 30px;">
+          <!-- Navy Info Card -->
+          <div class="card card--navy reveal" style="padding: 36px;">
+            <span class="badge badge--orange" style="margin-bottom: 16px;">Surat Studio Headquarters</span>
+            <h3 style="color: #fff; margin-bottom: 16px;"><%= business.name %></h3>
+
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div>
+                <div style="font-size: 0.8rem; color: var(--color-sky); text-transform: uppercase;">Lead Developer</div>
+                <div style="font-weight: 700; color: #fff; font-size: 1.05rem;"><%= business.leadDeveloper %></div>
+              </div>
+
+              <div>
+                <div style="font-size: 0.8rem; color: var(--color-sky); text-transform: uppercase;">Location</div>
+                <div style="font-weight: 700; color: #fff; font-size: 1.05rem;"><%= business.city %></div>
+              </div>
+
+              <div>
+                <div style="font-size: 0.8rem; color: var(--color-sky); text-transform: uppercase;">Direct Email</div>
+                <div style="font-weight: 700; color: #fff; font-size: 1.05rem;"><a href="mailto:<%= business.email %>" style="color: var(--color-bright);"><%= business.email %></a></div>
+              </div>
+
+              <div>
+                <div style="font-size: 0.8rem; color: var(--color-sky); text-transform: uppercase;">Phone / WhatsApp</div>
+                <div style="font-weight: 700; color: #fff; font-size: 1.05rem;"><a href="tel:<%= business.phone.replace(/[^0-9+]/g, '') %>" style="color: #fff;"><%= business.phone %></a></div>
+              </div>
+
+              <div>
+                <div style="font-size: 0.8rem; color: var(--color-sky); text-transform: uppercase;">Working Hours</div>
+                <div style="font-weight: 700; color: #fff; font-size: 1.05rem;"><%= business.workingHours %></div>
+              </div>
+
+            </div>
+
+            <!-- Instagram QR Code Box -->
+            <div style="margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.15); display: flex; align-items: center; gap: 20px;">
+              <img src="/img/qr-instagram.svg" alt="Instagram QR Code for @ak.digital_studio" style="width: 80px; height: 80px; border-radius: 12px; background: #fff; padding: 4px;">
+              <div>
+                <div style="font-weight: 700; color: #fff; font-size: 0.95rem;">Scan for Instagram</div>
+                <div style="font-size: 0.85rem; color: var(--color-sky); margin-bottom: 6px;">@<%= business.instagram %></div>
+                <a href="<%= business.instagramUrl %>" target="_blank" rel="noopener" style="color: var(--color-orange); font-weight: 700; font-size: 0.85rem;">Open Profile &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3-Step Process Card -->
+          <div class="card reveal" style="padding: 36px;">
+            <span class="badge badge--sky" style="margin-bottom: 12px;">How We Work</span>
+            <h3 style="margin-bottom: 12px;">Our 3-Step Client Process</h3>
+            <p style="font-size: 0.92rem; color: var(--color-slate); margin-bottom: 20px;">
+              From the initial message to a live production site in days:
+            </p>
+
+            <div class="step-process-list">
+              <div class="step-item">
+                <div class="step-num">1</div>
+                <div>
+                  <h4 style="font-size: 1rem; margin-bottom: 4px;">Discovery &amp; Strategy</h4>
+                  <p style="font-size: 0.88rem; margin: 0;">We analyze your competitors, define page architecture, and align on exact timelines and investment.</p>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-num">2</div>
+                <div>
+                  <h4 style="font-size: 1rem; margin-bottom: 4px;">Creation &amp; Testing</h4>
+                  <p style="font-size: 0.88rem; margin: 0;">Rapid development using AI web dev tooling followed by meticulous cross-device and speed testing.</p>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-num">3</div>
+                <div>
+                  <h4 style="font-size: 1rem; margin-bottom: 4px;">Launch &amp; Grow</h4>
+                  <p style="font-size: 0.88rem; margin: 0;">DNS deployment, SSL activation, Google Maps submission, and 1 full year of setup maintenance.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Embedded Google Maps Section -->
+  <section class="section section--ice" style="padding-top: 0;">
+    <div class="container">
+      <div class="card reveal" style="padding: 16px; overflow: hidden;">
+        <div style="padding: 16px 20px;">
+          <h3 style="font-size: 1.2rem; margin-bottom: 4px;">Studio Location &bull; Surat, Gujarat</h3>
+          <p style="font-size: 0.9rem; margin: 0;">Serving businesses across Ring Road, Adajan, Vesu, Varachha, Katargam, and all over Gujarat &amp; India.</p>
+        </div>
+        <div style="border-radius: var(--radius-lg); overflow: hidden; height: 350px; background: #e5e5e5;">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119066.42985390978!2d72.757139!3d21.1702401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04e59411d1563%3A0xfe4558290938b042!2sSurat%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="AK Digital Studio Location in Surat, Gujarat"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('../partials/floating-wa') %>
+<%- include('../partials/footer') %>
+
+<script src="/js/main.js"></script>
+<script src="/js/forms.js"></script>
+</body>
+</html>

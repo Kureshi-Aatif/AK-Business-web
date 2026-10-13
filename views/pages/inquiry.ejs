@@ -1,0 +1,288 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<main id="main-content">
+  <!-- Breadcrumbs -->
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li aria-current="page">Request a Quote</li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Page Header -->
+  <section class="section section--ice" style="padding-bottom: 40px;">
+    <div class="container text-center">
+      <div class="section-header reveal" style="margin-bottom: 0;">
+        <span class="badge badge--orange section-badge">Start Your Project</span>
+        <h1>Request a Project Quote &amp; Consultation</h1>
+        <p>
+          Tell us about your brand, requirements, and timeline. Lead developer Aatif Kureshi will personally analyze your project and provide a transparent proposal within 24 hours.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inquiry Form Section -->
+  <section class="section">
+    <div class="container" style="max-width: 860px;">
+      <div class="form-container-card edge-corner-frame reveal">
+
+        <!-- Progressive Enhancement Success State (if submitted without JS) -->
+        <% if (typeof successRef !== 'undefined' && successRef) { %>
+          <div class="form-success-card">
+            <div class="success-icon-badge">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h2 style="margin-bottom: 12px;">Inquiry Successfully Submitted!</h2>
+            <p style="color: var(--color-slate); font-size: 1.05rem;">
+              Thank you for choosing AK Digital Studio. We have received your project details and sent a confirmation to your email.
+            </p>
+            <div class="ref-token-pill">
+              <%= successRef %>
+            </div>
+            <p style="font-size: 0.95rem; color: var(--color-slate); margin-bottom: 24px;">
+              Please save this Reference ID for all communication. You can also message us directly on WhatsApp right now to fast-track your quotation:
+            </p>
+            <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+              <a href="https://wa.me/<%= business.whatsappNumber.replace(/[^0-9]/g, '') %>?text=<%= encodeURIComponent('Hello Aatif, I just submitted an inquiry with Reference ID: ' + successRef) %>" target="_blank" rel="noopener" class="btn btn--primary btn--lg" style="background: #25D366;">
+                <span>Continue on WhatsApp</span>
+              </a>
+              <a href="/" class="btn btn--outline btn--lg">Return to Home</a>
+            </div>
+          </div>
+        <% } else { %>
+
+          <!-- Interactive / Normal Form -->
+          <% 
+            const initialInterest = (typeof preselectedPlan !== 'undefined' && preselectedPlan) 
+              ? preselectedPlan 
+              : ((typeof preselectedService !== 'undefined' && preselectedService) ? preselectedService : '');
+          %>
+          <form id="inquiry-form" method="POST" action="/inquiry" novalidate>
+            <!-- CSRF Protection & Anti-Spam Honeypots -->
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off">
+            <input type="text" name="website_url_hp" class="hp-field" tabindex="-1" autocomplete="off">
+            <input type="hidden" name="_form_time" value="">
+
+            <% if (typeof errors !== 'undefined' && errors.form) { %>
+              <div class="form-general-error" style="background: #FEE2E2; color: #991B1B; padding: 12px 16px; border-radius: 8px; margin-bottom: 20px; font-weight: 600;">
+                <%= errors.form %>
+              </div>
+            <% } %>
+
+            <div class="form-grid form-grid--2col">
+              <!-- Full Name -->
+              <div class="form-group">
+                <label for="name" class="form-label">Full Name <span class="required">*</span></label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  class="form-control <%= (typeof errors !== 'undefined' && errors.name) ? 'is-invalid' : '' %>" 
+                  placeholder="e.g. Rahul Sharma" 
+                  value="<%= (typeof oldData !== 'undefined' && oldData.name) ? oldData.name : '' %>" 
+                  required
+                >
+                <div class="form-error-msg <%= (typeof errors !== 'undefined' && errors.name) ? 'is-visible' : '' %>"><%= (typeof errors !== 'undefined' && errors.name) ? errors.name : '' %></div>
+              </div>
+
+              <!-- Email -->
+              <div class="form-group">
+                <label for="email" class="form-label">Email Address <span class="required">*</span></label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  class="form-control <%= (typeof errors !== 'undefined' && errors.email) ? 'is-invalid' : '' %>" 
+                  placeholder="e.g. rahul@example.com" 
+                  value="<%= (typeof oldData !== 'undefined' && oldData.email) ? oldData.email : '' %>" 
+                  required
+                >
+                <div class="form-error-msg <%= (typeof errors !== 'undefined' && errors.email) ? 'is-visible' : '' %>"><%= (typeof errors !== 'undefined' && errors.email) ? errors.email : '' %></div>
+              </div>
+
+              <!-- Phone / WhatsApp -->
+              <div class="form-group">
+                <label for="phone" class="form-label">Phone / WhatsApp Number <span class="required">*</span></label>
+                <input 
+                  type="tel" 
+                  id="phone" 
+                  name="phone" 
+                  class="form-control <%= (typeof errors !== 'undefined' && errors.phone) ? 'is-invalid' : '' %>" 
+                  placeholder="e.g. 98765 43210 or +91..." 
+                  value="<%= (typeof oldData !== 'undefined' && oldData.phone) ? oldData.phone : '' %>" 
+                  required
+                >
+                <div class="form-error-msg <%= (typeof errors !== 'undefined' && errors.phone) ? 'is-visible' : '' %>"><%= (typeof errors !== 'undefined' && errors.phone) ? errors.phone : '' %></div>
+              </div>
+
+              <!-- Business Name -->
+              <div class="form-group">
+                <label for="business_name" class="form-label">Business / Brand Name</label>
+                <input 
+                  type="text" 
+                  id="business_name" 
+                  name="business_name" 
+                  class="form-control <%= (typeof errors !== 'undefined' && errors.business_name) ? 'is-invalid' : '' %>" 
+                  placeholder="e.g. Royal Textile Mills" 
+                  value="<%= (typeof oldData !== 'undefined' && oldData.business_name) ? oldData.business_name : '' %>"
+                >
+                <div class="form-error-msg <%= (typeof errors !== 'undefined' && errors.business_name) ? 'is-visible' : '' %>"><%= (typeof errors !== 'undefined' && errors.business_name) ? errors.business_name : '' %></div>
+              </div>
+
+              <!-- Business Type -->
+              <div class="form-group">
+                <label for="business_type" class="form-label">Business Type</label>
+                <select id="business_type" name="business_type" class="form-control">
+                  <option value="">Select business industry...</option>
+                  <option value="Retail & Wholesale" <%= (typeof oldData !== 'undefined' && oldData.business_type === 'Retail & Wholesale') ? 'selected' : '' %>>Retail &amp; Wholesale Commerce</option>
+                  <option value="Manufacturing & Industrial" <%= (typeof oldData !== 'undefined' && oldData.business_type === 'Manufacturing & Industrial') ? 'selected' : '' %>>Manufacturing, Textile &amp; Industrial</option>
+                  <option value="Healthcare & Clinic" <%= (typeof oldData !== 'undefined' && oldData.business_type === 'Healthcare & Clinic') ? 'selected' : '' %>>Doctor, Hospital &amp; Healthcare</option>
+                  <option value="Real Estate & Architecture" <%= (typeof oldData !== 'undefined' && oldData.business_type === 'Real Estate & Architecture') ? 'selected' : '' %>>Real Estate, Interior &amp; Construction</option>
+                  <option value="Restaurant & Hospitality" <%= (typeof oldData !== 'undefined' && oldData.business_type === 'Restaurant & Hospitality') ? 'selected' : '' %>>Restaurant, Cafe &amp; Hospitality</option>
+                  <option value="Professional Services" <%= (typeof oldData !== 'undefined' && oldData.business_type === 'Professional Services') ? 'selected' : '' %>>Consultancy, CA &amp; Legal</option>
+                  <option value="Startup / Other" <%= (typeof oldData !== 'undefined' && oldData.business_type === 'Startup / Other') ? 'selected' : '' %>>Startup / Other Category</option>
+                </select>
+              </div>
+
+              <!-- Interested In (Plans & Services) -->
+              <div class="form-group">
+                <label for="interest" class="form-label">Interested In <span class="required">*</span></label>
+                <select id="interest" name="interest" class="form-control <%= (typeof errors !== 'undefined' && errors.interest) ? 'is-invalid' : '' %>" required>
+                  <optgroup label="Website Packages">
+                    <option value="Starter Website" <%= (initialInterest === 'Starter Website' || (typeof oldData !== 'undefined' && oldData.interest === 'Starter Website')) ? 'selected' : '' %>>Starter Website (₹4,999 onwards)</option>
+                    <option value="Standard Catalogue" <%= (initialInterest === 'Standard Catalogue' || (typeof oldData !== 'undefined' && oldData.interest === 'Standard Catalogue')) ? 'selected' : '' %>>Standard Catalogue (₹9,999 onwards - Most Popular)</option>
+                    <option value="E-commerce Solution" <%= (initialInterest === 'E-commerce Solution' || (typeof oldData !== 'undefined' && oldData.interest === 'E-commerce Solution')) ? 'selected' : '' %>>E-commerce Solution (₹14,999 onwards)</option>
+                  </optgroup>
+                  <optgroup label="Specialized Services">
+                    <option value="Modern Web Design & Development" <%= (initialInterest.includes('Web Design') || (typeof oldData !== 'undefined' && oldData.interest === 'Modern Web Design & Development')) ? 'selected' : '' %>>Modern Web Design &amp; Development</option>
+                    <option value="Performance Digital Marketing & SEO" <%= (initialInterest.includes('Marketing') || (typeof oldData !== 'undefined' && oldData.interest === 'Performance Digital Marketing & SEO')) ? 'selected' : '' %>>Performance Digital Marketing &amp; SEO</option>
+                    <option value="Brand Identity & Visual Graphic Design" <%= (initialInterest.includes('Graphic') || (typeof oldData !== 'undefined' && oldData.interest === 'Brand Identity & Visual Graphic Design')) ? 'selected' : '' %>>Brand Identity &amp; Graphic Design</option>
+                    <option value="High-Impact Video Editing & Reels" <%= (initialInterest.includes('Video') || (typeof oldData !== 'undefined' && oldData.interest === 'High-Impact Video Editing & Reels')) ? 'selected' : '' %>>High-Impact Video Editing &amp; Reels</option>
+                    <option value="Custom Business Solutions & Digital Automation" <%= (initialInterest.includes('Business Solutions') || (typeof oldData !== 'undefined' && oldData.interest === 'Custom Business Solutions & Digital Automation')) ? 'selected' : '' %>>Custom Business Solutions &amp; Automation</option>
+                  </optgroup>
+                  <option value="Not sure yet" <%= (initialInterest === 'Not sure yet' || (typeof oldData !== 'undefined' && oldData.interest === 'Not sure yet')) ? 'selected' : '' %>>Not sure yet (Need Aatif's Recommendation)</option>
+                </select>
+                <div class="form-error-msg <%= (typeof errors !== 'undefined' && errors.interest) ? 'is-visible' : '' %>"><%= (typeof errors !== 'undefined' && errors.interest) ? errors.interest : '' %></div>
+              </div>
+
+              <!-- Budget Range -->
+              <div class="form-group">
+                <label for="budget" class="form-label">Approximate Budget Range</label>
+                <select id="budget" name="budget" class="form-control">
+                  <option value="">Select budget range...</option>
+                  <option value="Under ₹10,000" <%= (typeof oldData !== 'undefined' && oldData.budget === 'Under ₹10,000') ? 'selected' : '' %>>Under ₹10,000</option>
+                  <option value="₹10,000 - ₹25,000" <%= (typeof oldData !== 'undefined' && oldData.budget === '₹10,000 - ₹25,000') ? 'selected' : '' %>>₹10,000 - ₹25,000</option>
+                  <option value="₹25,000 - ₹50,000" <%= (typeof oldData !== 'undefined' && oldData.budget === '₹25,000 - ₹50,000') ? 'selected' : '' %>>₹25,000 - ₹50,000</option>
+                  <option value="₹50,000+" <%= (typeof oldData !== 'undefined' && oldData.budget === '₹50,000+') ? 'selected' : '' %>>₹50,000+</option>
+                  <option value="Flexible / Need Advice" <%= (typeof oldData !== 'undefined' && oldData.budget === 'Flexible / Need Advice') ? 'selected' : '' %>>Flexible / Need Advice</option>
+                </select>
+              </div>
+
+              <!-- Preferred Timeline -->
+              <div class="form-group">
+                <label for="timeline" class="form-label">Preferred Timeline</label>
+                <select id="timeline" name="timeline" class="form-control">
+                  <option value="">Select expected completion...</option>
+                  <option value="Urgent (Within 1 week)" <%= (typeof oldData !== 'undefined' && oldData.timeline === 'Urgent (Within 1 week)') ? 'selected' : '' %>>Urgent (Within 1 week)</option>
+                  <option value="Standard (1-2 weeks)" <%= (typeof oldData !== 'undefined' && oldData.timeline === 'Standard (1-2 weeks)') ? 'selected' : '' %>>Standard (1 to 2 weeks)</option>
+                  <option value="Within 1 month" <%= (typeof oldData !== 'undefined' && oldData.timeline === 'Within 1 month') ? 'selected' : '' %>>Within 1 month</option>
+                  <option value="Planning ahead" <%= (typeof oldData !== 'undefined' && oldData.timeline === 'Planning ahead') ? 'selected' : '' %>>Planning ahead</option>
+                </select>
+              </div>
+
+              <!-- Preferred Contact Method -->
+              <div class="form-group form-col-span-2">
+                <label class="form-label">Preferred Contact Method</label>
+                <div style="display: flex; gap: 24px; flex-wrap: wrap; margin-top: 4px;">
+                  <label class="form-checkbox-label">
+                    <input type="radio" name="contact_method" value="WhatsApp" checked>
+                    <span>WhatsApp Message (Fastest response)</span>
+                  </label>
+                  <label class="form-checkbox-label">
+                    <input type="radio" name="contact_method" value="Call" <%= (typeof oldData !== 'undefined' && oldData.contact_method === 'Call') ? 'checked' : '' %>>
+                    <span>Phone Call</span>
+                  </label>
+                  <label class="form-checkbox-label">
+                    <input type="radio" name="contact_method" value="Email" <%= (typeof oldData !== 'undefined' && oldData.contact_method === 'Email') ? 'checked' : '' %>>
+                    <span>Email Message</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Project Details -->
+              <div class="form-group form-col-span-2">
+                <label for="details" class="form-label">Project Details &amp; Requirements <span class="required">*</span></label>
+                <textarea 
+                  id="details" 
+                  name="details" 
+                  rows="5" 
+                  class="form-control <%= (typeof errors !== 'undefined' && errors.details) ? 'is-invalid' : '' %>" 
+                  placeholder="Describe your products, target audience, reference sites you like, and any specific features you need..." 
+                  required
+                ><%= (typeof oldData !== 'undefined' && oldData.details) ? oldData.details : '' %></textarea>
+                <div class="form-error-msg <%= (typeof errors !== 'undefined' && errors.details) ? 'is-visible' : '' %>"><%= (typeof errors !== 'undefined' && errors.details) ? errors.details : '' %></div>
+              </div>
+
+              <!-- Consent Checkbox -->
+              <div class="form-group form-col-span-2">
+                <label class="form-checkbox-label">
+                  <input type="checkbox" name="consent" value="true" required checked>
+                  <span>I agree to receive a tailored project estimate, timeline advice, and follow-up communication from AK Digital Studio.</span>
+                </label>
+                <div class="form-error-msg <%= (typeof errors !== 'undefined' && errors.consent) ? 'is-visible' : '' %>"><%= (typeof errors !== 'undefined' && errors.consent) ? errors.consent : '' %></div>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="form-col-span-2" style="margin-top: 10px;">
+                <button type="submit" class="btn btn--primary btn--lg" style="width: 100%;">
+                  <span>Submit Project Inquiry</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+                <p style="text-align: center; font-size: 0.85rem; color: var(--color-slate); margin-top: 12px;">
+                  🔒 We respect your confidentiality. Your details will never be shared or spammed.
+                </p>
+              </div>
+            </div>
+          </form>
+
+          <!-- AJAX Success State Container (Populated via JS) -->
+          <div id="inquiry-form-success" class="form-success-card" style="display: none;">
+            <div class="success-icon-badge">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h2 style="margin-bottom: 12px;">Inquiry Successfully Submitted!</h2>
+            <p style="color: var(--color-slate); font-size: 1.05rem;">
+              Thank you for choosing AK Digital Studio. We have received your project details and dispatched a confirmation to your email.
+            </p>
+            <div class="ref-token-pill ref-id-display">
+              INQ-2026-PENDING
+            </div>
+            <p style="font-size: 0.95rem; color: var(--color-slate); margin-bottom: 24px;">
+              Please save this Reference ID for all future communication. You can also message us directly on WhatsApp right now to fast-track your quotation:
+            </p>
+            <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+              <a href="https://wa.me/<%= business.whatsappNumber.replace(/[^0-9]/g, '') %>?text=<%= encodeURIComponent('Hello Aatif, I just submitted an inquiry on your website.') %>" target="_blank" rel="noopener" class="btn btn--primary btn--lg btn-wa-action" style="background: #25D366;">
+                <span>Continue on WhatsApp</span>
+              </a>
+              <a href="/" class="btn btn--outline btn--lg">Return to Home</a>
+            </div>
+          </div>
+        <% } %>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('../partials/floating-wa') %>
+<%- include('../partials/footer') %>
+
+<script src="/js/main.js"></script>
+<script src="/js/forms.js"></script>
+</body>
+</html>

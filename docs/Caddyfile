@@ -1,0 +1,39 @@
+# ==============================================================================
+# Caddy 2 Reverse Proxy Configuration for AK Digital Studio
+# Automatic HTTPS via Let's Encrypt / ZeroSSL
+# ==============================================================================
+
+# Redirect www to non-www
+www.akdigitalstudio.com {
+    redir https://akdigitalstudio.com{uri} permanent
+}
+
+# Main Application
+akdigitalstudio.com {
+    # Encode with Gzip & Zstandard
+    encode zstd gzip
+
+    # Security Headers
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        -Server
+    }
+
+    # Static file serving with long cache
+    handle_path /public/* {
+        root * /var/www/akdigitalstudio/public
+        file_server
+        header Cache-Control "public, max-age=2592000, immutable"
+    }
+
+    # Reverse proxy to Node.js backend
+    reverse_proxy 127.0.0.1:3000 {
+        header_up Host {host}
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-For {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+    }
+}

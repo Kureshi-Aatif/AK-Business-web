@@ -1,0 +1,23 @@
+services:
+  ak-digital-studio:
+    build: .
+    container_name: ak-digital-studio
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - SITE_URL=http://localhost:3000
+      - ADMIN_PASSWORD=adminSecret123!
+      - SESSION_SECRET=change-this-session-secret-for-production-key
+      - BUSINESS_PHONE=+91 XXXXX XXXXX
+      - BUSINESS_EMAIL=aatif@akdigitalstudio.com
+      - INSTAGRAM_HANDLE=AKDigitalStudio
+      - CITY=Surat, Gujarat
+      - WHATSAPP_NUMBER=+919876543210
+    volumes:
+      - ak_data:/app/data
+
+volumes:
+  ak_data:

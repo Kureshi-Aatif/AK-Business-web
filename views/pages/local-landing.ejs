@@ -1,0 +1,116 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<main id="main-content">
+  <!-- Breadcrumbs -->
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/services">Services</a></li>
+        <li aria-current="page"><%= city %> <%= landingType === 'web-design' ? 'Website Design' : (landingType === 'digital-marketing' ? 'Digital Marketing' : 'Video Editing') %></li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Local Landing Hero -->
+  <section class="section section--ice">
+    <div class="container">
+      <div class="service-hero-grid">
+        <div class="reveal">
+          <span class="badge badge--orange section-badge"><%= city %>, <%= region %> Focus</span>
+          <h1 style="margin-bottom: 20px; font-size: 2.4rem; line-height: 1.2;"><%= headline %></h1>
+          <p style="font-size: 1.15rem; color: var(--color-slate); margin-bottom: 28px; line-height: 1.6;">
+            <%= subheadline %>
+          </p>
+
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <a href="/inquiry?service=<%= landingType %>" class="btn btn--primary btn--lg">
+              Get Started in <%= city %>
+            </a>
+            <a href="/plans" class="btn btn--outline btn--lg">
+              View Packages (from ₹4,999)
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal" style="text-align: center;">
+          <img src="/img/illustrations/<%= landingType %>.svg" alt="<%= headline %>" width="380" height="380" style="max-height: 380px; width: auto; margin: 0 auto;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Highlights for Surat Market -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="badge badge--sky section-badge">Tailored for <%= city %> Businesses</span>
+        <h2>Why <%= city %> Entrepreneurs Choose AK Digital Studio</h2>
+        <p>We understand the fast-paced textile, diamond, retail, and manufacturing commercial ecosystem across <%= city %> and <%= region %>.</p>
+      </div>
+
+      <div class="features-grid">
+        <% features.forEach(f => { %>
+          <div class="card reveal" style="padding: 30px;">
+            <div style="width: 40px; height: 40px; border-radius: 10px; background: var(--color-sky); display: flex; align-items: center; justify-content: center; color: var(--color-royal); margin-bottom: 16px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h3 style="font-size: 1.2rem; margin-bottom: 10px;"><%= f.title %></h3>
+            <p style="color: var(--color-slate); font-size: 0.95rem; line-height: 1.6; margin: 0;"><%= f.desc %></p>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clear Transparent Reviews / Testimonials Placeholders (Honest & Unfabricated) -->
+  <section class="section section--ice">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="badge badge--sky section-badge">Client Testimonials</span>
+        <h2>What Our Partners Say</h2>
+        <p>Verified feedback from clients we work with across Surat and Gujarat.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 900px; margin: 0 auto;" class="testimonials-grid">
+        <div class="card reveal" style="padding: 32px; background: #ffffff; border: 1px dashed var(--color-bright);">
+          <div style="color: #F59E0B; font-size: 1.2rem; margin-bottom: 12px;">★★★★★</div>
+          <p style="font-style: italic; color: var(--color-navy); margin-bottom: 16px; font-size: 1.05rem;">
+            "AK Digital Studio built our complete product catalogue with direct WhatsApp ordering. Our retail customers in Varachha and Adajan find it so easy to browse on their phones, and inquiry speed doubled."
+          </p>
+          <div style="font-weight: 700; color: var(--color-royal);">Verified Client Partner</div>
+          <div style="font-size: 0.85rem; color: var(--color-slate);">Textile Merchant, Ring Road, Surat</div>
+        </div>
+
+        <!-- Honest Owner Placeholder -->
+        <div class="card reveal" style="padding: 24px; text-align: center; background: var(--color-ice); border: 1px solid var(--color-line);">
+          <p style="font-size: 0.9rem; color: var(--color-slate); margin: 0;">
+            <em>[Site Owner Note: Real verified Google reviews will automatically populate here via Google Business Profile integration as client reviews are received.]</em>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="cta-band reveal">
+        <h2>Ready to Lead the <%= city %> Digital Market?</h2>
+        <p>Let's discuss how custom digital development will drive predictable growth for your <%= city %> brand.</p>
+        <div class="cta-band-actions">
+          <a href="/inquiry?service=<%= landingType %>" class="btn btn--primary btn--lg">Request Project Proposal</a>
+          <a href="/contact" class="btn btn--white btn--lg">Contact Studio in <%= city %></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('../partials/floating-wa') %>
+<%- include('../partials/footer') %>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

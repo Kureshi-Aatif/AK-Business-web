@@ -1,0 +1,8 @@
+Contact: mailto:AKdigitalstudio.org@gmail.com
+Contact: tel:+917698450003
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en, gu, hi
+Canonical: https://akdigitalstudio.com/.well-known/security.txt
+Policy: https://akdigitalstudio.com/privacy
+Acknowledgments: https://akdigitalstudio.com
+Hiring: https://akdigitalstudio.com/contact

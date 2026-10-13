@@ -1,0 +1,132 @@
+<% 
+  const isArticle = true;
+  const ogImage = post.image ? `${siteUrl}${post.image}` : `${siteUrl}/img/og-blog.svg`;
+%>
+<%- include('../partials/head', { isArticle, ogImage }) %>
+<%- include('../partials/header') %>
+
+<main id="main-content">
+  <!-- Breadcrumbs -->
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li aria-current="page"><%= post.title %></li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Article Header -->
+  <header class="article-header">
+    <div class="container" style="max-width: 840px; text-align: center;">
+      <span class="badge badge--royal" style="margin-bottom: 14px;"><%= post.category %></span>
+      <h1 style="font-size: 2.3rem; line-height: 1.25; margin-bottom: 20px;"><%= post.title %></h1>
+      <div style="display: flex; justify-content: center; align-items: center; gap: 20px; font-size: 0.92rem; color: var(--color-slate); flex-wrap: wrap;">
+        <span><strong>Author:</strong> <%= post.author %> (<%= post.authorRole %>)</span>
+        <span>&bull;</span>
+        <span>Published: <%= post.dateFormatted %></span>
+        <span>&bull;</span>
+        <span><%= post.readingTime %></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Body Content -->
+  <div class="container">
+    <article class="article-body">
+      <%- post.html %>
+
+      <!-- Author Bio Box -->
+      <div class="card reveal" style="margin-top: 60px; padding: 28px; background: var(--color-ice); border: 1px solid var(--color-line); display: flex; gap: 20px; align-items: center;">
+        <div style="width: 64px; height: 64px; border-radius: 50%; background: var(--color-royal); color: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; flex-shrink: 0;">
+          AK
+        </div>
+        <div>
+          <h4 style="margin-bottom: 4px; font-size: 1.1rem;"><%= post.author %></h4>
+          <p style="font-size: 0.88rem; color: var(--color-slate); margin-bottom: 6px;"><%= post.authorRole %> at AK Digital Studio, Surat</p>
+          <p style="font-size: 0.92rem; color: var(--color-navy); margin: 0;">
+            Passionate about building blazing-fast websites and helping local Surat business owners turn online traffic into verifiable leads.
+          </p>
+        </div>
+      </div>
+
+      <!-- Contextual Service & Plan CTA -->
+      <div class="card card--navy reveal" style="margin-top: 40px; padding: 36px; text-align: center;">
+        <h3 style="color: #ffffff; margin-bottom: 12px;">Ready to Elevate Your Digital Presence?</h3>
+        <p style="color: var(--color-sky); margin-bottom: 24px; font-size: 1rem;">
+          Explore our transparent website packages starting from just ₹4,999 or chat directly with our team in Surat.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+          <a href="/plans" class="btn btn--primary">View Website Plans</a>
+          <a href="/inquiry" class="btn btn--white">Request Free Consultation</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- Related Articles -->
+  <% if (post.relatedPosts && post.relatedPosts.length > 0) { %>
+  <section class="section section--ice" style="border-top: 1px solid var(--color-line);">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="badge badge--sky section-badge">Keep Reading</span>
+        <h2>Related Growth Articles</h2>
+      </div>
+      <div class="blog-grid" style="margin-top: 30px;">
+        <% post.relatedPosts.forEach(rp => { %>
+          <div class="blog-card reveal">
+            <div class="blog-card__body">
+              <span style="font-size: 0.8rem; color: var(--color-royal); font-weight: 700; margin-bottom: 8px;"><%= rp.category || 'Article' %></span>
+              <h3 class="blog-card__title" style="font-size: 1.1rem;">
+                <a href="/blog/<%= rp.slug %>"><%= rp.title %></a>
+              </h3>
+              <p class="blog-card__snippet"><%= rp.metaDesc || '' %></p>
+              <a href="/blog/<%= rp.slug %>" style="font-weight: 700; color: var(--color-royal); text-decoration: none; font-size: 0.9rem; margin-top: auto;">
+                Read Article →
+              </a>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+  <% } %>
+</main>
+
+<!-- JSON-LD Article Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "<%= post.title.replace(/"/g, '\\"') %>",
+  "description": "<%= (post.metaDesc || post.title).replace(/"/g, '\\"') %>",
+  "image": "<%= ogImage %>",
+  "author": {
+    "@type": "Person",
+    "name": "<%= post.author %>",
+    "jobTitle": "<%= post.authorRole %>"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "<%= business.name %>",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "<%= siteUrl %>/img/logo.svg"
+    }
+  },
+  "datePublished": "<%= post.date %>",
+  "dateModified": "<%= post.date %>",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "<%= canonical %>"
+  }
+}
+</script>
+
+<%- include('../partials/floating-wa') %>
+<%- include('../partials/footer') %>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= pageTitle %></title>
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Sora:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body class="admin-body" style="display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px;">
+  <div class="card" style="width: 100%; max-width: 440px; padding: 40px; text-align: center;">
+    <div style="margin-bottom: 20px;">
+      <img src="/img/logo.svg" alt="AK Digital Studio" style="margin: 0 auto; height: 50px;">
+    </div>
+    <span class="badge badge--orange" style="margin-bottom: 12px;">Staff Access</span>
+    <h2 style="font-size: 1.6rem; margin-bottom: 8px;">Admin Login</h2>
+    <p style="font-size: 0.92rem; color: var(--color-slate); margin-bottom: 28px;">
+      Enter your administrator password to manage leads, inquiries, and client requests.
+    </p>
+
+    <% if (typeof error !== 'undefined' && error) { %>
+      <div style="background: #FEE2E2; color: #991B1B; padding: 12px 14px; border-radius: 8px; margin-bottom: 20px; font-weight: 600; font-size: 0.88rem; text-align: left;">
+        <%= error %>
+      </div>
+    <% } %>
+
+    <form method="POST" action="/admin/login" novalidate>
+      <div class="form-group" style="text-align: left; margin-bottom: 24px;">
+        <label for="password" class="form-label">Admin Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          class="form-control" 
+          placeholder="Enter administrator password..." 
+          required 
+          autofocus
+        >
+      </div>
+
+      <button type="submit" class="btn btn--royal btn--lg" style="width: 100%;">
+        Authenticate &amp; Open Dashboard
+      </button>
+    </form>
+
+    <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--color-line);">
+      <a href="/" style="font-size: 0.88rem; color: var(--color-slate);">&larr; Return to Public Website</a>
+    </div>
+  </div>
+</body>
+</html>

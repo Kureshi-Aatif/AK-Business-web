@@ -1,0 +1,28 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<main class="section">
+  <div class="container text-center" style="max-width: 600px; padding: 60px 20px;">
+    <div class="card reveal" style="padding: 48px 30px; text-align: center;">
+      <div style="font-family: var(--font-heading); font-size: 5rem; font-weight: 800; color: var(--color-orange); line-height: 1; margin-bottom: 12px;">500</div>
+      <h1 style="font-size: 1.8rem; margin-bottom: 14px;">Server Encountered an Error</h1>
+      <p style="color: var(--color-slate); margin-bottom: 28px;">
+        An unexpected server error occurred while processing your request. Please try again or reach out directly to Aatif Kureshi on WhatsApp.
+      </p>
+      <% if (typeof error !== 'undefined' && error) { %>
+        <pre style="text-align: left; background: #eee; padding: 12px; border-radius: 8px; font-size: 0.8rem; margin-bottom: 20px; overflow-x: auto;"><%= error %></pre>
+      <% } %>
+      <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+        <a href="/" class="btn btn--primary">Return Home</a>
+        <a href="/contact" class="btn btn--outline">Contact Studio</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%- include('../partials/floating-wa') %>
+<%- include('../partials/footer') %>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

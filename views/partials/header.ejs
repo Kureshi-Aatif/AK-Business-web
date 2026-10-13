@@ -1,0 +1,56 @@
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <!-- Brand Logo -->
+    <a href="/" class="site-logo" aria-label="AK Digital Studio Home">
+      <img src="/img/logo.svg" alt="AK Digital Studio Logo" width="220" height="52">
+    </a>
+
+    <!-- Pill Navigation (Desktop) -->
+    <nav class="nav-pill-wrapper" role="navigation" aria-label="Main Navigation">
+      <% navItems.forEach(item => { %>
+        <a 
+          href="<%= item.href %>" 
+          class="nav-link <%= item.active ? 'is-active' : '' %> <%= item.isExternal ? 'nav-link--external' : '' %>" 
+          <%= item.active ? 'aria-current="page"' : '' %>
+          <%= item.isExternal ? 'target="_blank" rel="noopener"' : '' %>
+        >
+          <%= item.label %>
+          <% if (item.isExternal) { %>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left: 2px; vertical-align: middle;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          <% } %>
+        </a>
+      <% }) %>
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="header-actions">
+      <a href="/inquiry" class="btn btn--primary btn--sm">Get a quote</a>
+      
+      <!-- Mobile Menu Hamburger -->
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Navigation Drawer -->
+<nav class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile Navigation">
+  <% navItems.forEach(item => { %>
+    <a 
+      href="<%= item.href %>" 
+      class="nav-link <%= item.active ? 'is-active' : '' %>"
+      <%= item.isExternal ? 'target="_blank" rel="noopener"' : '' %>
+    >
+      <%= item.label %> <%= item.isExternal ? '↗' : '' %>
+    </a>
+  <% }) %>
+  <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--color-line);">
+    <a href="/inquiry" class="btn btn--primary" style="width: 100%;">Get a quote</a>
+    <p style="margin-top: 14px; font-size: 0.88rem; color: var(--color-slate); text-align: center;">
+      Surat, Gujarat &bull; <%= business.phone %>
+    </p>
+  </div>
+</nav>

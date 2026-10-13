@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= typeof pageTitle !== 'undefined' ? pageTitle : 'AK Digital Studio | Web Design & Digital Growth in Surat, Gujarat' %></title>
+  <meta name="description" content="<%= typeof metaDesc !== 'undefined' ? metaDesc : 'High-performance websites, Google Maps local SEO, and digital growth solutions by AK Digital Studio in Surat, Gujarat.' %>">
+  
+  <% if (typeof canonical !== 'undefined') { %>
+  <link rel="canonical" href="<%= canonical %>">
+  <% } %>
+
+  <!-- Regional hreflang tag -->
+  <link rel="alternate" hreflang="en-IN" href="<%= typeof canonical !== 'undefined' ? canonical : siteUrl %>">
+  <link rel="alternate" hreflang="x-default" href="<%= typeof canonical !== 'undefined' ? canonical : siteUrl %>">
+
+  <!-- Search Engine Verification Meta Tags -->
+  <% if (seo.gscVerification) { %>
+  <meta name="google-site-verification" content="<%= seo.gscVerification %>">
+  <% } %>
+  <% if (seo.bingVerification) { %>
+  <meta name="msvalidate.01" content="<%= seo.bingVerification %>">
+  <% } %>
+
+  <!-- Web App Manifest & Theme Color -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0B3FD8">
+  <meta name="color-scheme" content="light">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+  <link rel="apple-touch-icon" href="/img/favicon.svg">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="<%= typeof isArticle !== 'undefined' && isArticle ? 'article' : 'website' %>">
+  <meta property="og:url" content="<%= typeof canonical !== 'undefined' ? canonical : siteUrl %>">
+  <meta property="og:title" content="<%= typeof pageTitle !== 'undefined' ? pageTitle : 'AK Digital Studio' %>">
+  <meta property="og:description" content="<%= typeof metaDesc !== 'undefined' ? metaDesc : 'Your trusted partner for digital growth and modern websites in Surat, Gujarat.' %>">
+  <meta property="og:image" content="<%= typeof ogImage !== 'undefined' ? ogImage : `${siteUrl}/img/og-default.svg` %>">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="AK Digital Studio">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="<%= typeof pageTitle !== 'undefined' ? pageTitle : 'AK Digital Studio' %>">
+  <meta name="twitter:description" content="<%= typeof metaDesc !== 'undefined' ? metaDesc : 'Your trusted partner for digital growth and modern websites in Surat, Gujarat.' %>">
+  <meta name="twitter:image" content="<%= typeof ogImage !== 'undefined' ? ogImage : `${siteUrl}/img/og-default.svg` %>">
+
+  <!-- Performance: Preconnect & Font Loading with font-display swap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Sora:wght@600;800&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Sora:wght@600;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Sora:wght@600;800&display=swap" rel="stylesheet">
+  </noscript>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Global Organization & LocalBusiness JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "<%= siteUrl %>/#organization",
+        "name": "<%= business.name %>",
+        "url": "<%= siteUrl %>",
+        "logo": "<%= siteUrl %>/img/logo.svg",
+        "email": "<%= business.email %>",
+        "telephone": "<%= business.phone %>",
+        "sameAs": [
+          "<%= business.instagramUrl %>"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "<%= siteUrl %>/#website",
+        "url": "<%= siteUrl %>",
+        "name": "<%= business.name %>",
+        "description": "<%= business.heroHeadline %>",
+        "publisher": { "@id": "<%= siteUrl %>/#organization" },
+        "inLanguage": "en-IN"
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "<%= siteUrl %>/#localbusiness",
+        "name": "<%= business.name %>",
+        "image": "<%= siteUrl %>/img/logo.svg",
+        "url": "<%= siteUrl %>",
+        "telephone": "<%= business.phone %>",
+        "email": "<%= business.email %>",
+        "priceRange": "₹4,999 - ₹49,999",
+        "currenciesAccepted": "INR",
+        "paymentAccepted": "Cash, Credit Card, Debit Card, UPI, Net Banking",
+        "areaServed": [
+          { "@type": "City", "name": "Surat" },
+          { "@type": "AdministrativeArea", "name": "Gujarat" },
+          { "@type": "Country", "name": "India" }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Ring Road / Adajan / Varachha",
+          "addressLocality": "Surat",
+          "addressRegion": "Gujarat",
+          "postalCode": "395003",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "21.1702",
+          "longitude": "72.8311"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "09:30",
+            "closes": "19:30"
+          }
+        ],
+        "sameAs": [
+          "<%= business.instagramUrl %>"
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Breadcrumbs JSON-LD Schema (Inner pages) -->
+  <% if (typeof breadcrumbs !== 'undefined' && breadcrumbs && breadcrumbs.length > 1) { %>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      <% breadcrumbs.forEach((crumb, idx) => { %>
+      {
+        "@type": "ListItem",
+        "position": <%= idx + 1 %>,
+        "name": "<%= crumb.label %>",
+        "item": "<%= siteUrl %><%= crumb.href %>"
+      }<%= idx < breadcrumbs.length - 1 ? ',' : '' %>
+      <% }) %>
+    ]
+  }
+  </script>
+  <% } %>
+
+  <!-- Google Analytics 4 Script (Loaded conditionally via Nonce after consent) -->
+  <% if (seo.gaId) { %>
+  <script nonce="<%= nonce %>">
+    window.GA_MEASUREMENT_ID = '<%= seo.gaId %>';
+  </script>
+  <% } %>
+</head>
+<body>
+  <!-- Accessibility: Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>

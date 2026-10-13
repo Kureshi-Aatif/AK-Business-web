@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 260" width="260" height="260" fill="none">
+  <!-- Card background -->
+  <rect width="260" height="260" rx="20" fill="#ffffff" stroke="#D5DEF5" stroke-width="2"/>
+
+  <!-- QR Pattern Grid -->
+  <g fill="#071A57" transform="translate(30, 30)">
+    <!-- Top-left finder -->
+    <rect x="0" y="0" width="56" height="56" rx="10" fill="#071A57"/>
+    <rect x="10" y="10" width="36" height="36" rx="6" fill="#ffffff"/>
+    <rect x="18" y="18" width="20" height="20" rx="3" fill="#0B3FD8"/>
+
+    <!-- Top-right finder -->
+    <rect x="144" y="0" width="56" height="56" rx="10" fill="#071A57"/>
+    <rect x="154" y="10" width="36" height="36" rx="6" fill="#ffffff"/>
+    <rect x="162" y="18" width="20" height="20" rx="3" fill="#0B3FD8"/>
+
+    <!-- Bottom-left finder -->
+    <rect x="0" y="144" width="56" height="56" rx="10" fill="#071A57"/>
+    <rect x="10" y="154" width="36" height="36" rx="6" fill="#ffffff"/>
+    <rect x="18" y="162" width="20" height="20" rx="3" fill="#0B3FD8"/>
+
+    <!-- Data matrix dots -->
+    <rect x="70" y="8" width="14" height="14" rx="3"/>
+    <rect x="94" y="8" width="14" height="14" rx="3"/>
+    <rect x="118" y="8" width="14" height="14" rx="3"/>
+    <rect x="70" y="32" width="14" height="14" rx="3"/>
+    <rect x="118" y="32" width="14" height="14" rx="3"/>
+
+    <rect x="8" y="70" width="14" height="14" rx="3"/>
+    <rect x="32" y="70" width="14" height="14" rx="3"/>
+    <rect x="8" y="94" width="14" height="14" rx="3"/>
+    <rect x="32" y="118" width="14" height="14" rx="3"/>
+
+    <rect x="144" y="70" width="14" height="14" rx="3"/>
+    <rect x="178" y="70" width="14" height="14" rx="3"/>
+    <rect x="154" y="94" width="14" height="14" rx="3"/>
+    <rect x="188" y="118" width="14" height="14" rx="3"/>
+
+    <rect x="70" y="144" width="14" height="14" rx="3"/>
+    <rect x="94" y="144" width="14" height="14" rx="3"/>
+    <rect x="70" y="178" width="14" height="14" rx="3"/>
+    <rect x="118" y="168" width="14" height="14" rx="3"/>
+
+    <rect x="144" y="144" width="14" height="14" rx="3"/>
+    <rect x="178" y="144" width="14" height="14" rx="3"/>
+    <rect x="144" y="178" width="14" height="14" rx="3"/>
+    <rect x="178" y="178" width="14" height="14" rx="3"/>
+
+    <!-- Instagram Center Badge -->
+    <g transform="translate(76, 76)">
+      <rect width="48" height="48" rx="14" fill="#ffffff"/>
+      <rect x="4" y="4" width="40" height="40" rx="10" fill="#FF7A1A"/>
+      <rect x="11" y="11" width="26" height="26" rx="7" stroke="#ffffff" stroke-width="2.5" fill="none"/>
+      <circle cx="24" cy="24" r="6" stroke="#ffffff" stroke-width="2.5" fill="none"/>
+      <circle cx="31" cy="17" r="1.5" fill="#ffffff"/>
+    </g>
+  </g>
+</svg>

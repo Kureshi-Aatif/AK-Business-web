@@ -1,0 +1,106 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Col 1: Brand Info -->
+      <div class="footer-col">
+        <div style="margin-bottom: 20px;">
+          <div style="display: inline-block; background: #ffffff; padding: 6px 14px; border-radius: 12px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);">
+            <img src="/img/logo.svg" alt="AK Digital Studio" style="height: 48px; width: auto;">
+          </div>
+        </div>
+        <p style="color: var(--color-sky); font-size: 0.94rem; margin-bottom: 20px;">
+          <%= business.tagline %>
+        </p>
+        <p style="color: var(--color-slate); font-size: 0.88rem; margin-bottom: 16px;">
+          Specializing in lightning-fast websites, local Google search domination, and high-impact digital experiences for growing businesses in Surat and across Gujarat.
+        </p>
+        <% if (business.googleReviewUrl) { %>
+        <div>
+          <a href="<%= business.googleReviewUrl %>" target="_blank" rel="noopener" class="btn btn--outline-sky btn--sm" style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; padding: 6px 12px;">
+            <span>⭐ Leave a Google Review</span>
+          </a>
+        </div>
+        <% } %>
+      </div>
+
+      <!-- Col 2: Explore Links -->
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/why-website">Why a Website</a></li>
+          <li><a href="/plans">Plans &amp; Pricing</a></li>
+          <li><a href="/services">All Services</a></li>
+          <li><a href="/faq">Frequently Asked Questions</a></li>
+          <li><a href="/blog">Guides &amp; Insights Blog</a></li>
+          <li><a href="<%= business.portfolioUrl %>" target="_blank" rel="noopener" style="color: var(--color-bright); font-weight: 600;">Client Portfolio (Drive) ↗</a></li>
+          <li><a href="/inquiry">Request a Quote</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Services & Local Hubs -->
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="/services/web-design">Web Design &amp; Development</a></li>
+          <li><a href="/services/digital-marketing">Digital Marketing &amp; SEO</a></li>
+          <li><a href="/services/graphic-design">Graphic &amp; Brand Design</a></li>
+          <li><a href="/services/video-editing">Video Editing &amp; Reels</a></li>
+          <li><a href="/services/business-solutions">Business Automation</a></li>
+          <li style="margin-top: 14px; font-weight: 700; color: #fff; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.5px;">Surat Local Hubs</li>
+          <li><a href="/website-design-surat" style="color: var(--color-sky);">Website Design Surat</a></li>
+          <li><a href="/digital-marketing-surat" style="color: var(--color-sky);">Digital Marketing Surat</a></li>
+          <li><a href="/video-editing-surat" style="color: var(--color-sky);">Video Editing Surat</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Contact Details (NAP) -->
+      <div class="footer-col">
+        <h4>Surat Studio</h4>
+        <p style="color: var(--color-sky); font-size: 0.94rem; margin-bottom: 10px;">
+          <strong>Lead Developer:</strong> <%= business.leadDeveloper %>
+        </p>
+        <p style="color: var(--color-sky); font-size: 0.94rem; margin-bottom: 10px;">
+          <strong>Location:</strong> <%= business.address %>
+        </p>
+        <p style="color: var(--color-sky); font-size: 0.94rem; margin-bottom: 10px;">
+          <strong>Email:</strong> <a href="mailto:<%= business.email %>" style="color: var(--color-bright);" data-track="email_click"><%= business.email %></a>
+        </p>
+        <p style="color: var(--color-sky); font-size: 0.94rem; margin-bottom: 14px;">
+          <strong>Phone:</strong> <a href="tel:<%= business.phone.replace(/[^0-9+]/g, '') %>" style="color: #fff;" data-track="phone_click"><%= business.phone %></a>
+        </p>
+        <div style="margin-top: 14px;">
+          <a href="<%= business.instagramUrl %>" target="_blank" rel="noopener" class="btn btn--white btn--sm" style="display: inline-flex; align-items: center; gap: 8px;">
+            <span>Instagram: @<%= business.instagram %></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <div>
+        &copy; <%= currentYear %> <%= business.name %>. All rights reserved.
+      </div>
+      <div style="display: flex; gap: 20px;">
+        <a href="/privacy" style="color: var(--color-slate);">Privacy Policy</a>
+        <a href="/terms" style="color: var(--color-slate);">Terms of Service</a>
+        <a href="<%= adminRoute %>/login" style="color: var(--color-slate);">Staff Login</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Cookie Consent Banner (DPDP Compliant) -->
+<div id="cookie-consent-banner" class="cookie-consent" style="display: none;" role="region" aria-label="Cookie and Privacy Consent">
+  <div class="container cookie-consent__inner">
+    <div class="cookie-consent__text">
+      <strong>Your Privacy Matters:</strong> We use minimal analytics cookies to understand site performance and deliver responsive service according to India's DPDP Act. We never sell your personal data.
+    </div>
+    <div class="cookie-consent__actions">
+      <button type="button" class="btn btn--white btn--sm" id="cookie-reject-btn">Reject</button>
+      <button type="button" class="btn btn--primary btn--sm" id="cookie-accept-btn">Accept</button>
+    </div>
+  </div>
+</div>
