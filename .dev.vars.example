@@ -1,0 +1,22 @@
+# Cloudflare Pages Functions / Worker Local Environment Variables (.dev.vars)
+# Copy this to .dev.vars for local testing: cp .dev.vars.example .dev.vars
+
+# Site URL for CORS locking (defaults to localhost:8788 for wrangler pages dev)
+SITE_URL=http://localhost:8788
+
+# Administrator secret bearer token for /admin/ access (required for /api/admin/*)
+ADMIN_TOKEN=ChangeThisToASecureAdminToken2026!
+
+# Notification destination for inquiries and contacts
+NOTIFY_TO=AKdigitalstudio.org@gmail.com
+
+# Optional Resend API Key for sending transactional emails (https://resend.com free tier: 3,000 emails/mo)
+RESEND_API_KEY=
+
+# Cloudflare Turnstile CAPTCHA Keys (https://dash.cloudflare.com/?to=/:account/turnstile)
+# For testing: 1x00000000000000000000AA (always passes)
+TURNSTILE_SITE_KEY=
+TURNSTILE_SECRET=
+
+# Secret salt for IP anonymization / hashing (DPDP Act compliance)
+IP_SALT=ak-digital-secret-salt-surat-2026

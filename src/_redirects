@@ -1,0 +1,19 @@
+# Canonical redirects & aliases
+/home / 301
+/why-a-website /why-website/ 301
+/why-website /why-website/ 301
+/pricing /plans/ 301
+/pricing/ /plans/ 301
+/plans /plans/ 301
+/services /services/ 301
+/portfolio /portfolio/ 301
+/inquiry /inquiry/ 301
+/contact /contact/ 301
+/faq /faq/ 301
+/privacy /privacy/ 301
+/terms /terms/ 301
+/admin /admin/ 301
+/quote /inquiry/ 301
+/quote/ /inquiry/ 301
+/estimate /inquiry/ 301
+/estimate/ /inquiry/ 301

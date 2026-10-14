@@ -1,0 +1,324 @@
+/**
+ * Home Page Template
+ */
+
+export function renderHomePage(site) {
+  return `
+<main id="main-content">
+  <!-- Hero Section with Stepped Circuit Corners & 3D Artwork -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <!-- Stepped Diagonal Circuit Corner Accents -->
+    <img src="/img/circuit-corner.svg" class="circuit-corner circuit-corner--top-right" alt="" aria-hidden="true" width="240" height="240">
+    <img src="/img/circuit-corner.svg" class="circuit-corner circuit-corner--bottom-left" alt="" aria-hidden="true" width="240" height="240">
+
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Hero Text -->
+        <div class="hero-content reveal">
+          <div class="hero-tagline">${escapeHtml(site.tagline)}</div>
+          <h1 id="hero-heading" class="hero-title">${escapeHtml(site.heroHeadline)}</h1>
+          <p class="hero-desc">
+            At <strong>${escapeHtml(site.name)}</strong> in Surat, Gujarat, we craft high-performance, mobile-first websites and digital growth engines that transform everyday business visitors into qualified, high-paying clients.
+          </p>
+          <div class="hero-actions">
+            <a href="/plans/" class="btn btn--primary btn--lg">View our plans</a>
+            <a href="/inquiry/" class="btn btn--outline btn--lg">Send an inquiry</a>
+            <a href="/portfolio/" class="btn btn--white btn--lg">View portfolio</a>
+          </div>
+          <div class="hero-trust-row">
+            <div class="trust-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Sub-Second Load Times</span>
+            </div>
+            <div class="trust-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>100% Mobile Responsive</span>
+            </div>
+            <div class="trust-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Google Maps SEO Ready</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D Illustration Showcase with Floating Badges -->
+        <div class="hero-artwork reveal">
+          <div class="artwork-frame">
+            <img src="/img/illustrations/hero-3d.svg" alt="3D illustration of high-speed modern website and digital growth" width="600" height="520">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 Service Icon Cards Section -->
+  <section class="section section--ice" aria-labelledby="services-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="badge badge--sky section-badge">What We Do</span>
+        <h2 id="services-heading">End-to-End Digital Services for Modern Brands</h2>
+        <p>From custom web engineering to targeted local customer acquisition, we build every element required to establish digital authority in Surat and beyond.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- 1. Web Design -->
+        <article class="card service-card reveal">
+          <div class="service-card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </div>
+          <h3 class="service-card-title">Web Design &amp; Development</h3>
+          <p class="service-card-desc">Custom brand websites, catalogues, and e-commerce stores engineered for blazing speed, mobile fluidness, and high conversion.</p>
+          <a href="/services/web-design/" class="service-card-link">
+            <span>Explore Web Design</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+          </a>
+        </article>
+
+        <!-- 2. Digital Marketing -->
+        <article class="card service-card reveal">
+          <div class="service-card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+          </div>
+          <h3 class="service-card-title">Digital Marketing &amp; SEO</h3>
+          <p class="service-card-desc">Rank in the Google Maps 3-pack, dominate local Surat keywords, and run high-intent WhatsApp advertising funnels.</p>
+          <a href="/services/digital-marketing/" class="service-card-link">
+            <span>Explore Marketing</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+          </a>
+        </article>
+
+        <!-- 3. Graphic Design -->
+        <article class="card service-card reveal">
+          <div class="service-card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path><circle cx="12" cy="12" r="4"></circle></svg>
+          </div>
+          <h3 class="service-card-title">Graphic &amp; Brand Design</h3>
+          <p class="service-card-desc">Modern logos, sales brochures, packaging labels, and striking social media creatives with scalable vector assets.</p>
+          <a href="/services/graphic-design/" class="service-card-link">
+            <span>Explore Branding</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+          </a>
+        </article>
+
+        <!-- 4. Video Editing -->
+        <article class="card service-card reveal">
+          <div class="service-card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+          </div>
+          <h3 class="service-card-title">Video Editing &amp; Reels</h3>
+          <p class="service-card-desc">Hook-driven Instagram reels, YouTube shorts, and commercial video promos with snappy pacing, sound design, and captions.</p>
+          <a href="/services/video-editing/" class="service-card-link">
+            <span>Explore Video Editing</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+          </a>
+        </article>
+
+        <!-- 5. Business Solutions -->
+        <article class="card service-card reveal">
+          <div class="service-card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          </div>
+          <h3 class="service-card-title">Business Solutions</h3>
+          <p class="service-card-desc">Custom automation, WhatsApp catalogue setups, payment gateways, and lightweight internal tools to eliminate manual friction.</p>
+          <a href="/services/business-solutions/" class="service-card-link">
+            <span>Explore Solutions</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+          </a>
+        </article>
+
+        <!-- 6. Support & Consultation -->
+        <article class="card service-card reveal">
+          <div class="service-card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          </div>
+          <h3 class="service-card-title">Support &amp; Consultation</h3>
+          <p class="service-card-desc">1-on-1 strategic roadmap sessions, server maintenance, ongoing updates, and 1 year of setup support included with all builds.</p>
+          <a href="/contact/" class="service-card-link">
+            <span>Schedule Consultation</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- "Our Approach" Section -->
+  <section class="section" aria-labelledby="approach-heading">
+    <div class="container">
+      <div class="approach-grid">
+        <div class="approach-content reveal">
+          <span class="badge badge--orange section-badge">The Technical Edge</span>
+          <h2 id="approach-heading">Engineered with Precision &amp; Zero Bloat</h2>
+          <p style="font-size: 1.1rem;">
+            We don't use heavy, bloated CMS templates that take 8 seconds to load. We build lightning-fast, mobile-responsive static platforms using clean semantic markup and modern CSS combined with rigorous cross-device testing.
+          </p>
+
+          <div class="approach-pills-list">
+            <div class="approach-pill-card">
+              <div class="approach-pill-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              </div>
+              <div>
+                <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 4px; color: var(--color-navy);">Lightning-Fast Architecture</h3>
+                <p style="font-size: 0.92rem; margin: 0;">Clean, semantic HTML5 and vanilla styles loaded in under 0.8 seconds to secure top Google rank and prevent bounce rates.</p>
+              </div>
+            </div>
+
+            <div class="approach-pill-card">
+              <div class="approach-pill-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+              </div>
+              <div>
+                <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 4px; color: var(--color-navy);">Fluid Mobile-First UI</h3>
+                <p style="font-size: 0.92rem; margin: 0;">Tested across real iOS and Android screens (375px to 1440px) ensuring flawless touch ergonomics and readability.</p>
+              </div>
+            </div>
+
+            <div class="approach-pill-card">
+              <div class="approach-pill-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              </div>
+              <div>
+                <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 4px; color: var(--color-navy);">Rigorous Manual Testing</h3>
+                <p style="font-size: 0.92rem; margin: 0;">Every form, button, inquiry trigger, and WhatsApp link undergoes strict manual quality verification before launch.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="card card--navy" style="padding: 40px; position: relative; overflow: hidden;">
+            <div style="font-family: var(--font-heading); font-weight: 800; font-size: 0.9rem; color: var(--color-orange); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">Performance Benchmark</div>
+            <h3 style="font-size: 1.8rem; margin-bottom: 24px; color: #fff;">99+ Google Lighthouse Speed Score</h3>
+            <div style="display: flex; gap: 24px; margin-bottom: 28px;">
+              <div>
+                <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: #3CCB5A;">0.4s</div>
+                <div style="font-size: 0.82rem; color: var(--color-sky);">First Contentful Paint</div>
+              </div>
+              <div>
+                <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: #3CCB5A;">100%</div>
+                <div style="font-size: 0.82rem; color: var(--color-sky);">Mobile Accessibility</div>
+              </div>
+              <div>
+                <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: #3CCB5A;">Zero</div>
+                <div style="font-size: 0.82rem; color: var(--color-sky);">Framework Bloat</div>
+              </div>
+            </div>
+            <p style="color: var(--color-sky); font-size: 0.96rem;">
+              Speed is directly correlated with customer trust and sales conversions. We guarantee your visitors never experience lag or layout shifts.
+            </p>
+            <div style="margin-top: 24px;">
+              <a href="/why-website/" class="btn btn--white btn--sm">Why speed matters</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navy "Our Details" Panel Section (Single Source of Truth) -->
+  <section class="section" style="padding-top: 0;" aria-labelledby="details-heading">
+    <div class="container">
+      <div class="details-panel reveal">
+        <div class="details-grid">
+          <div>
+            <span class="badge badge--orange" style="margin-bottom: 16px;">Direct Studio Leadership</span>
+            <h2 id="details-heading" style="color: #fff; margin-bottom: 14px;">Work Directly with the Developer</h2>
+            <p style="color: var(--color-sky); font-size: 1.05rem;">
+              No middle managers or outsourcing delays. You collaborate directly with Lead Developer <strong>${escapeHtml(site.leadDeveloper)}</strong> right here in Surat to plan, build, and deploy your project.
+            </p>
+            <div class="details-items-row">
+              <div class="details-badge-item">
+                <div class="details-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+                <div>
+                  <div class="label">Lead Developer</div>
+                  <div class="value">${escapeHtml(site.leadDeveloper)}</div>
+                </div>
+              </div>
+
+              <div class="details-badge-item">
+                <div class="details-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <div>
+                  <div class="label">Headquarters</div>
+                  <div class="value">${escapeHtml(site.city)}</div>
+                </div>
+              </div>
+
+              <div class="details-badge-item">
+                <div class="details-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+                <div>
+                  <div class="label">Direct Email</div>
+                  <div class="value"><a href="${site.emailMailto}" style="color: #fff;">${escapeHtml(site.email)}</a></div>
+                </div>
+              </div>
+
+              <div class="details-badge-item">
+                <div class="details-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </div>
+                <div>
+                  <div class="label">Call / WhatsApp</div>
+                  <div class="value"><a href="${site.phoneTel}" style="color: #fff;">${site.phoneDisplay}</a></div>
+                </div>
+              </div>
+
+              <div class="details-badge-item">
+                <div class="details-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </div>
+                <div>
+                  <div class="label">Instagram</div>
+                  <div class="value"><a href="${site.instagramUrl}" target="_blank" rel="noopener" style="color: #fff;">${escapeHtml(site.instagram)}</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.05); padding: 36px; border-radius: var(--radius-lg); border: 1px solid rgba(255, 255, 255, 0.1);">
+            <div style="font-family: var(--font-heading); font-weight: 800; font-size: 1.1rem; color: #fff; margin-bottom: 8px;">Ready to Talk?</div>
+            <p style="text-align: center; font-size: 0.92rem; color: var(--color-sky); margin-bottom: 20px;">
+              Discuss your project directly with Aatif Kureshi on WhatsApp for instant pricing &amp; timeline advice.
+            </p>
+            <a href="${site.whatsappLink}" target="_blank" rel="noopener" class="btn btn--primary" style="width: 100%;">
+              <span>Direct WhatsApp Chat</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Band -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="cta-band reveal">
+        <h2>Turn Your Vision Into a High-Converting Reality</h2>
+        <p>
+          Whether you need a starter 5-page showcase or a full-scale e-commerce catalogue, we deliver production-ready digital platforms in days, not months.
+        </p>
+        <div class="cta-band-actions">
+          <a href="/inquiry/" class="btn btn--primary btn--lg">Request your project quote</a>
+          <a href="/plans/" class="btn btn--white btn--lg">View transparent plans</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+`;
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}

@@ -1,0 +1,9 @@
+name = "ak-digital-studio"
+pages_build_output_dir = "dist"
+compatibility_date = "2024-09-23"
+
+# Cloudflare D1 Database Binding (free tier)
+[[d1_databases]]
+binding = "DB"
+database_name = "ak-digital-db"
+database_id = "local-d1-db" # Overridden in Cloudflare Dashboard with actual D1 database UUID

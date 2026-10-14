@@ -1,5 +1,8 @@
 node_modules/
+dist/
 .env
+.dev.vars
+.wrangler/
 data/app.db*
 npm-debug.log*
 .DS_Store

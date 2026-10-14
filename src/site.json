@@ -1,0 +1,311 @@
+{
+  "name": "AK Digital Studio",
+  "tagline": "Grow your brand. Reach more. Achieve more.",
+  "heroHeadline": "Your trusted partner for digital growth and modern websites.",
+  "leadDeveloper": "Aatif Kureshi",
+  "location": "Surat, Gujarat, India",
+  "city": "Surat, Gujarat",
+  "address": "Surat, Gujarat 395003, India",
+  "phoneRaw": "7698450003",
+  "phoneDisplay": "+91 76984 50003",
+  "phoneTel": "tel:+917698450003",
+  "whatsappNumber": "917698450003",
+  "whatsappLink": "https://wa.me/917698450003?text=Hi%20AK%20Digital%20Studio%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services.",
+  "email": "AKdigitalstudio.org@gmail.com",
+  "emailMailto": "mailto:AKdigitalstudio.org@gmail.com",
+  "instagram": "@ak.digital_studio",
+  "instagramUrl": "https://instagram.com/ak.digital_studio",
+  "portfolioUrl": "https://drive.google.com/drive/folders/1rVIyFGmlAZ6Q309xKHGT4LxL0HUl6ej4?usp=drive_link",
+  "portfolioFolderId": "1rVIyFGmlAZ6Q309xKHGT4LxL0HUl6ej4",
+  "portfolioEmbedUrl": "https://drive.google.com/embeddedfolderview?id=1rVIyFGmlAZ6Q309xKHGT4LxL0HUl6ej4#grid",
+  "brochureUrl": "/downloads/AK_Digital_Studio_Brochure.pdf",
+  "siteUrl": "https://akdigitalstudio.pages.dev",
+  "workingHours": "Mon - Sat: 9:30 AM - 7:30 PM (IST)",
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "Why a website", "href": "/why-website/" },
+    { "label": "Plans", "href": "/plans/" },
+    { "label": "Services", "href": "/services/" },
+    { "label": "Contact", "href": "/contact/" }
+  ],
+  "plans": [
+    {
+      "id": "starter-website",
+      "name": "Starter Website",
+      "price": "₹4,999",
+      "priceNumeric": 4999,
+      "suffix": "onwards",
+      "delivery": "Within 3 days",
+      "featured": false,
+      "badge": null,
+      "desc": "Ideal for small businesses, professionals, and service providers establishing their primary digital presence.",
+      "features": [
+        "Up to 5 pages (Home, About, Services, Gallery, Contact)",
+        "Static website",
+        "Responsive design",
+        "Basic contact form",
+        "Direct WhatsApp click-to-chat",
+        "Google Maps integration",
+        "Fast loading speed"
+      ]
+    },
+    {
+      "id": "standard-catalogue",
+      "name": "Standard Catalogue",
+      "price": "₹9,999",
+      "priceNumeric": 9999,
+      "suffix": "onwards",
+      "delivery": "3 to 5 days",
+      "featured": true,
+      "badge": "MOST POPULAR",
+      "desc": "Engineered for manufacturers, wholesalers, and retail brands looking to showcase comprehensive product lines.",
+      "features": [
+        "Up to 10 pages",
+        "Up to 20 products",
+        "Product categories & sub-categories",
+        "Product images",
+        "Product titles & descriptions",
+        "Basic on-page SEO setup",
+        "Social media integration",
+        "Full inquiry / lead capture system",
+        "Cross-device testing"
+      ]
+    },
+    {
+      "id": "premium-website",
+      "name": "Premium Website",
+      "price": "₹14,999",
+      "priceNumeric": 14999,
+      "suffix": "onwards",
+      "delivery": "5 to 7 days",
+      "featured": false,
+      "badge": null,
+      "desc": "High-impact web solution with integrated product checkout, advanced SEO, and robust lead capture for growing businesses.",
+      "features": [
+        "Up to 15 pages",
+        "Up to 50 products",
+        "Product categories & sub-categories",
+        "Product images",
+        "Product titles & descriptions",
+        "Shopping cart & secure checkout",
+        "Advance on-page SEO setup",
+        "Basic security handling",
+        "Lead capture system"
+      ]
+    },
+    {
+      "id": "ecommerce-solution",
+      "name": "E-commerce Solution",
+      "price": "₹24,999",
+      "priceNumeric": 24999,
+      "suffix": "onwards",
+      "delivery": "7 to 14 days",
+      "featured": false,
+      "badge": null,
+      "desc": "Complete enterprise-grade online storefront with multi-channel payment gateways, order management, and 1-year client support.",
+      "features": [
+        "Complete online store setup",
+        "Initial product upload (50+ products)",
+        "Admin & user panels",
+        "Shopping cart & secure checkout",
+        "Payment gateway integration (UPI, cards)",
+        "Order management dashboard",
+        "Client training session",
+        "1 year client support",
+        "Advance SEO",
+        "Security support"
+      ]
+    }
+  ],
+  "addons": [
+    { "title": "Additional website page", "price": "₹800 onwards" },
+    { "title": "Dedicated landing page", "price": "₹2,000 onwards" },
+    { "title": "Advanced WhatsApp setup", "price": "₹500 onwards" },
+    { "title": "Custom contact/booking form", "price": "₹500 onwards" },
+    { "title": "Google Business Profile setup", "price": "₹1,000 onwards" },
+    { "title": "Basic on-page SEO for existing sites", "price": "₹2,000 onwards" },
+    { "title": "Content formatting & upload", "price": "₹500 onwards" }
+  ],
+  "services": [
+    {
+      "slug": "web-design",
+      "title": "Web Design & Development",
+      "navLabel": "Web Design",
+      "badge": "Core Expertise",
+      "metaTitle": "Website Design Company in Surat | Web Development | AK Digital Studio",
+      "metaDesc": "Custom website development and e-commerce stores in Surat, Gujarat. Fast loading speed, mobile responsive design, and WhatsApp checkout integration.",
+      "heroHeadline": "High-Speed, Custom Web Design in Surat",
+      "heroSubtitle": "Custom-crafted websites that captivate visitors, establish rock-solid credibility, and turn clicks into loyal paying clients.",
+      "illustration": "/img/illustrations/web-design.svg",
+      "chips": ["Mobile-First", "Sub-second Load Speed", "SEO-Ready Structure", "Clean Code"],
+      "offerings": [
+        { "title": "Custom Brand Websites", "desc": "Tailor-made designs created from scratch to embody your company’s unique value, eliminating generic cookie-cutter templates." },
+        { "title": "Mobile-First Responsive Layouts", "desc": "Flawlessly optimized for smartphones, tablets, laptops, and ultra-wide screens with fluid typography and intuitive touch targets." },
+        { "title": "Product Catalogues & Showcases", "desc": "Structured digital catalogues with categories, crisp media galleries, and direct WhatsApp inquiry buttons for each item." },
+        { "title": "High-Conversion Landing Pages", "desc": "Targeted single-page funnels engineered with persuasive copy hierarchy, speed, and clear calls-to-action that maximize ad ROI." },
+        { "title": "Full E-commerce Stores", "desc": "Secure storefronts featuring product inventories, shopping carts, checkout workflows, and seamless payment gateways (UPI, cards)." },
+        { "title": "Performance Code Architecture", "desc": "Zero framework bloat with semantic HTML5 and modern CSS custom properties for sub-second speeds on 4G and 5G networks." }
+      ],
+      "perfectFor": [
+        "Retailers & Local Businesses",
+        "Manufacturers & Wholesalers",
+        "Doctors, Clinics & Hospitals",
+        "Coaching Institutes & Academies",
+        "Real Estate Developers",
+        "Restaurants & Cafes",
+        "Independent Consultants & Freelancers"
+      ]
+    },
+    {
+      "slug": "digital-marketing",
+      "title": "Digital Marketing & Local SEO",
+      "navLabel": "Digital Marketing",
+      "badge": "Growth Engine",
+      "metaTitle": "Digital Marketing Agency Surat | Google Ads & SEO | AK Digital Studio",
+      "metaDesc": "Scale your business with top Google Ads and Meta Ads management in Surat. Local SEO, Google Business Profile ranking, and direct WhatsApp lead funnels.",
+      "heroHeadline": "Performance Digital Marketing & Local SEO in Surat",
+      "heroSubtitle": "Dominate Google local search, capture qualified buyer intent, and scale your brand with laser-targeted customer acquisition.",
+      "illustration": "/img/illustrations/digital-marketing.svg",
+      "chips": ["Google Maps Top 3", "Local SEO Dominance", "WhatsApp Lead Funnels", "Verified ROI"],
+      "offerings": [
+        { "title": "Google Business Profile Optimization", "desc": "Complete setup, category optimization, review strategies, and citation building to get your business into the local 3-pack." },
+        { "title": "On-Page & Technical SEO", "desc": "Keyword research, meta structure, Open Graph tags, schema.org LocalBusiness markups, and site speed tuning for sustained organic rank." },
+        { "title": "Direct WhatsApp Lead Funnels", "desc": "Automated click-to-WhatsApp links and pre-filled message triggers embedded on every page for immediate prospect discussions." },
+        { "title": "Targeted Social Media Ads", "desc": "Laser-focused Meta (Instagram & Facebook) and Google Search campaigns targeting customers specifically within Surat and across Gujarat." },
+        { "title": "Conversion Rate Optimization (CRO)", "desc": "A/B testing, layout analysis, and message refinement that turns standard passive visitors into active inquiries." },
+        { "title": "Transparent Performance Analytics", "desc": "Clear monthly dashboards displaying phone calls, WhatsApp inquiries, visitor numbers, and cost-per-lead metrics without confusing jargon." }
+      ],
+      "perfectFor": [
+        "Local Service Providers",
+        "Jewellers & Textile Merchants",
+        "Industrial Suppliers",
+        "Home Decor & Interior Studios",
+        "Fitness Gyms & Wellness Centers",
+        "Automotive Garages & Detailers"
+      ]
+    },
+    {
+      "slug": "graphic-design",
+      "title": "Graphic Design & Brand Identity",
+      "navLabel": "Graphic Design",
+      "badge": "Visual Identity",
+      "metaTitle": "Logo Design & Graphic Designer in Surat | AK Digital Studio",
+      "metaDesc": "Professional logo design and creative graphic design in Surat. Business cards, menus, social media banners, and cohesive brand systems that command trust.",
+      "heroHeadline": "Brand Identity & Graphic Design Studio in Surat",
+      "heroSubtitle": "Establish undeniable credibility with striking logos, sleek marketing collateral, and a cohesive brand identity that commands attention.",
+      "illustration": "/img/illustrations/graphic-design.svg",
+      "chips": ["Vector Precision", "Brand Guidelines", "Print & Digital Formats", "Commercial Rights"],
+      "offerings": [
+        { "title": "Logo Design & Visual Identity", "desc": "Distinctive, memorable brand marks designed with strict geometric balance, color palettes, and comprehensive usage guides." },
+        { "title": "Stationery & Corporate Collateral", "desc": "High-end business cards, letterheads, invoice templates, and branded envelopes tailored for premium physical impressions." },
+        { "title": "Social Media Creatives & Ad Sets", "desc": "Engaging Instagram feed posts, carousels, and story templates created to stop scrollers and maintain strong brand consistency." },
+        { "title": "Marketing Flyers, Brochures & Menus", "desc": "Persuasive print-ready tri-fold brochures, sales flyers, restaurant menus, and product spec sheets formatted with CMYK precision." },
+        { "title": "Packaging & Label Artwork", "desc": "Shelf-ready box and label designs crafted for retail products, apparel tags, FMCG containers, and cosmetic packaging." },
+        { "title": "Vector Artwork & Icon Sets", "desc": "Custom UI iconography, vector illustrations, and brand mascots optimized for high-density screens and print reproduction." }
+      ],
+      "perfectFor": [
+        "New Startups & Ventures",
+        "Fashion Boutiques & Textile Labels",
+        "Cafes, Cloud Kitchens & Bakers",
+        "Corporate Law & Tax Firms",
+        "Consumer Packaged Goods"
+      ]
+    },
+    {
+      "slug": "video-editing",
+      "title": "Video Editing & Motion Graphics",
+      "navLabel": "Video Editing",
+      "badge": "Viral Engagement",
+      "metaTitle": "Video Editing Services Surat | Reels & YouTube | AK Digital Studio",
+      "metaDesc": "Top video editing services in Surat. Dynamic Instagram reels, YouTube video editing, motion graphics, and corporate promotional videos that hook audiences.",
+      "heroHeadline": "High-Retention Video Editing & Motion Graphics in Surat",
+      "heroSubtitle": "Turn raw camera clips into dynamic, scroll-stopping video assets engineered for maximum retention, algorithmic reach, and conversions.",
+      "illustration": "/img/illustrations/video-editing.svg",
+      "chips": ["Hook Optimization", "Kinetic Typography", "Sound Design & SFX", "Color Grading"],
+      "offerings": [
+        { "title": "Instagram Reels & YouTube Shorts", "desc": "Fast-paced, hook-optimized short videos designed for algorithmic reach, complete with stylish kinetic subtitles and trending audio." },
+        { "title": "Corporate & Brand Promo Videos", "desc": "High-end brand showcase films highlighting your facility, team, craftsmanship, or portfolio of completed client projects." },
+        { "title": "Product Demonstration Videos", "desc": "Clear, compelling product walkthroughs highlighting key benefits, unboxings, and practical usage demonstrations." },
+        { "title": "Client Testimonial & Case Story Videos", "desc": "Polished client interviews that build social proof, overcoming prospective buyer hesitation and validating your expertise." },
+        { "title": "Motion Graphics & Logo Stings", "desc": "Animated logo intros, lower-thirds, CTA overlays, and transition graphics that give your video content a broadcast-grade finish." },
+        { "title": "Sound Design & Audio Mastering", "desc": "Pristine voice isolation, subtle background scoring, and crisp sound effects that elevate audience immersion." }
+      ],
+      "perfectFor": [
+        "Content Creators & Influencers",
+        "E-commerce & Direct-to-Consumer Brands",
+        "Real Estate Agencies",
+        "Event Venues & Banquet Halls",
+        "Educational Creators"
+      ]
+    },
+    {
+      "slug": "business-solutions",
+      "title": "Business Solutions & Digital Automation",
+      "navLabel": "Business Solutions",
+      "badge": "Operations Streamlined",
+      "metaTitle": "Online Business Setup & Solutions Surat | AK Digital Studio",
+      "metaDesc": "Streamline operations with custom online business setup, WhatsApp automation bots, lead dashboards, and payment gateways tailored for Surat businesses.",
+      "heroHeadline": "Custom Business Solutions & Digital Automation in Surat",
+      "heroSubtitle": "Eliminate tedious manual overhead with automated WhatsApp messaging, custom lead funnels, and tailored web applications.",
+      "illustration": "/img/illustrations/business-solutions.svg",
+      "chips": ["Automated Lead Sync", "WhatsApp API Bots", "Custom Dashboards", "Zero Manual Errors"],
+      "offerings": [
+        { "title": "WhatsApp Automation & Chatbots", "desc": "Automatic instant greetings, catalog triggers, and automated lead capture when customers message your official WhatsApp line." },
+        { "title": "Lead Management Dashboards", "desc": "Centralized admin panels where incoming inquiries are organized, searchable, filterable, and exportable to CSV at any time." },
+        { "title": "Payment Gateway & UPI Integration", "desc": "Frictionless QR and payment gateway links allowing clients to settle invoices, pay advance retainers, or buy products instantly." },
+        { "title": "Custom Booking & Appointment Systems", "desc": "Interactive booking calendars that eliminate phone tag, sending instant confirmation emails and WhatsApp notifications." },
+        { "title": "Inventory & Catalogue Syncing", "desc": "Lightweight internal tools to update prices, stock, and descriptions across your web catalogue without complex IT hurdles." },
+        { "title": "Cloud Deployment & Monitoring", "desc": "End-to-end serverless deployment on high-uptime infrastructure with automated SSL certificates, daily backups, and security defenses." }
+      ],
+      "perfectFor": [
+        "Growing SMEs & Family Businesses",
+        "Distributors & Stockists",
+        "Service Centers & Repair Shops",
+        "Professional Consultancies",
+        "Trading Companies"
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How much does a professional website cost with AK Digital Studio in Surat?",
+      "a": "Our transparent packages begin at ₹4,999 for a 5-page Starter Website, ₹9,999 for a Standard Catalogue with up to 20 products, ₹14,999 for a Premium Website with up to 50 products and checkout, and ₹24,999 for a full E-commerce Solution with 1-year client support. There are zero hidden agency charges or recurring lock-in contracts."
+    },
+    {
+      "q": "What is the typical delivery timeline for completing a website?",
+      "a": "Delivery turnaround depends on the chosen package: Starter Websites are delivered within 3 days; Standard Catalogues take 3 to 5 days; Premium Websites take 5 to 7 days; and full E-commerce Stores are ready in 7 to 14 days, provided all content and images are supplied."
+    },
+    {
+      "q": "Are domain registration and web hosting included in the plans?",
+      "a": "Domain registration and web hosting fees are separate to guarantee you retain 100% legal ownership of your digital assets. We directly assist you in selecting and configuring high-speed, cost-effective hosting (Hostinger, MilesWeb, or Cloudflare Pages) in your name."
+    },
+    {
+      "q": "What kind of ongoing support is included after my website is launched?",
+      "a": "Every website built by AK Digital Studio includes 1 full year of basic setup support and maintenance. This covers bug fixes, minor content tweaks, DNS management, and technical troubleshooting directly with Lead Developer Aatif Kureshi."
+    },
+    {
+      "q": "Will my website appear on Google Maps and Google Search results in Surat?",
+      "a": "Yes! All our websites are engineered with technical on-page SEO, mobile responsiveness, fast loading speed, and schema.org LocalBusiness structured data. We also configure or optimize your Google Business Profile to help you rank in the Surat Google 3-Pack."
+    },
+    {
+      "q": "Can I easily update product pictures, descriptions, and prices on my own?",
+      "a": "Absolutely. For catalogue and e-commerce websites, we provide an intuitive admin management area and include a 1-on-1 walkthrough session showing you how to add, edit, or remove products and prices without needing any coding skills."
+    },
+    {
+      "q": "Do you provide direct WhatsApp click-to-chat integration on every page?",
+      "a": "Yes. In the Indian market, WhatsApp is the number one lead conversion channel. Every plan comes with customizable WhatsApp click-to-chat buttons with pre-filled product or inquiry inquiry messages that initiate instant conversations."
+    },
+    {
+      "q": "Will my website work properly on mobile phones and tablets?",
+      "a": "100%. Every single layout is developed with a strict mobile-first design system and rigorously tested across real iOS and Android devices, laptops, and 4K displays to ensure perfect typography, fluid images, and easy touch navigation."
+    },
+    {
+      "q": "What payment gateways can be integrated for online transactions in India?",
+      "a": "We integrate top Indian payment gateways including Razorpay, Cashfree, and PhonePe PG, supporting UPI (Google Pay, PhonePe, Paytm), debit/credit cards, and net banking with zero setup hassles."
+    },
+    {
+      "q": "How do I get started with AK Digital Studio for my project?",
+      "a": "Simply click 'Get a quote' or contact Lead Developer Aatif Kureshi directly via WhatsApp at +91 76984 50003 or email AKdigitalstudio.org@gmail.com. We will review your goals and provide a written roadmap and quote within 24 hours."
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+/**
+ * Services Index Page Template
+ */
+
+export function renderServicesPage(site) {
+  return `
+<main id="main-content">
+  <!-- Breadcrumbs -->
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li aria-current="page">Services</li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Page Header -->
+  <section class="section section--ice" style="padding-bottom: 40px;">
+    <div class="container text-center">
+      <div class="section-header reveal" style="margin-bottom: 0;">
+        <span class="badge badge--orange section-badge">Core Capabilities</span>
+        <h1>Digital Agency &amp; Web Development Services in Surat</h1>
+        <p>
+          Discover our full suite of technical and creative disciplines designed to establish your brand authority and generate consistent revenue in Surat and Gujarat.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Services List -->
+  <section class="section">
+    <div class="container">
+      <div style="display: flex; flex-direction: column; gap: 60px;">
+        ${site.services.map((srv, index) => `
+          <div class="card reveal" style="padding: clamp(30px, 5vw, 50px); overflow: hidden;">
+            <div style="display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center;" class="${index % 2 === 1 ? 'service-row-reverse' : ''}">
+              <div style="display: grid; grid-template-columns: 1fr; gap: 36px; align-items: center;" class="service-split">
+                <div>
+                  <span class="badge badge--sky" style="margin-bottom: 14px;">${escapeHtml(srv.badge)}</span>
+                  <h2 style="font-size: 1.85rem; margin-bottom: 14px;">${escapeHtml(srv.title)}</h2>
+                  <p style="font-size: 1.05rem; margin-bottom: 24px; color: var(--color-slate);">
+                    ${escapeHtml(srv.heroSubtitle)}
+                  </p>
+
+                  <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px;">
+                    ${srv.chips.map(chip => `
+                      <span class="pill-item">${escapeHtml(chip)}</span>
+                    `).join('')}
+                  </div>
+
+                  <div style="display: flex; flex-wrap: wrap; gap: 14px;">
+                    <a href="/services/${srv.slug}/" class="btn btn--primary">View full details</a>
+                    <a href="/inquiry/?interest=${encodeURIComponent(srv.title)}" class="btn btn--outline">Get a quote for ${srv.title.split(' ')[0]}</a>
+                  </div>
+                </div>
+
+                <div style="text-align: center;">
+                  <img src="${srv.illustration}" alt="${escapeHtml(srv.title)} 3D illustration" style="max-height: 320px; width: auto; margin: 0 auto;">
+                </div>
+              </div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  </section>
+
+  <!-- Support & Maintenance Special Panel -->
+  <section class="section section--ice" aria-labelledby="support-heading">
+    <div class="container">
+      <div class="card card--navy reveal" style="padding: clamp(36px, 5vw, 60px);">
+        <div style="display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center;" class="support-split">
+          <div>
+            <span class="badge badge--orange" style="margin-bottom: 14px;">Included with Every Build</span>
+            <h2 id="support-heading" style="color: #fff; margin-bottom: 16px;">1-Year Setup Support &amp; Technical Care</h2>
+            <p style="color: var(--color-sky); font-size: 1.05rem; margin-bottom: 24px;">
+              Launching a website is only step one. We don't abandon you after launch. Every client receives 1 full year of basic technical setup care, server health checks, SSL renewal assistance, and bug fixes directly handled by lead developer Aatif Kureshi.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 16px;">
+              <a href="/contact/" class="btn btn--white">Speak with our team</a>
+              <a href="/inquiry/" class="btn btn--primary">Request a quote</a>
+            </div>
+          </div>
+
+          <div style="text-align: center;">
+            <img src="/img/illustrations/support.svg" alt="Technical support and consultation" style="max-height: 280px; width: auto; margin: 0 auto;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+`;
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}

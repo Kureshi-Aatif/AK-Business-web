@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" width="500" height="400" fill="none">
+  <defs>
+    <filter id="dmShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="12" dy="20" stdDeviation="18" flood-color="#0B3FD8" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  <!-- Offset card frame -->
+  <rect x="52" y="42" width="396" height="316" rx="28" fill="#0B3FD8" opacity="0.12"/>
+  <rect x="40" y="30" width="396" height="316" rx="28" fill="#ffffff" stroke="#D5DEF5" stroke-width="2" filter="url(#dmShadow)"/>
+
+  <!-- Google Maps / Target Pin 3D graphic -->
+  <g transform="translate(130, 70)">
+    <!-- Radar rings -->
+    <circle cx="120" cy="110" r="100" stroke="#E6EEFF" stroke-width="2" stroke-dasharray="6 6"/>
+    <circle cx="120" cy="110" r="70" stroke="#D5DEF5" stroke-width="2"/>
+    <circle cx="120" cy="110" r="40" fill="#E6EEFF" opacity="0.6"/>
+
+    <!-- Map pin -->
+    <path d="M120 40 C95 40 75 60 75 85 C75 115 120 165 120 165 C120 165 165 115 165 85 C165 60 145 40 120 40 Z" fill="#0B3FD8"/>
+    <circle cx="120" cy="85" r="20" fill="#ffffff"/>
+    <circle cx="120" cy="85" r="10" fill="#FF7A1A"/>
+
+    <!-- Bar Growth Chart Floating -->
+    <g transform="translate(150, 80)">
+      <rect width="90" height="80" rx="8" fill="#071A57" stroke="#2E6BFF" stroke-width="1.5"/>
+      <rect x="15" y="45" width="12" height="25" rx="3" fill="#2E6BFF"/>
+      <rect x="35" y="30" width="12" height="40" rx="3" fill="#2E6BFF"/>
+      <rect x="55" y="15" width="12" height="55" rx="3" fill="#FF7A1A"/>
+      <path d="M21 45 L41 30 L61 15" stroke="#ffffff" stroke-width="2"/>
+    </g>
+  </g>
+
+  <!-- Floating Chip: "Top 3 Local Pack" -->
+  <g transform="translate(50, 270)">
+    <rect width="180" height="50" rx="25" fill="#ffffff" stroke="#D5DEF5" stroke-width="1.5"/>
+    <circle cx="26" cy="25" r="14" fill="#E6EEFF"/>
+    <text x="26" y="30" font-family="'Sora', sans-serif" font-weight="800" font-size="14" fill="#0B3FD8" text-anchor="middle">#1</text>
+    <text x="50" y="24" font-family="'Sora', sans-serif" font-weight="800" font-size="12" fill="#071A57">Google Maps</text>
+    <text x="50" y="38" font-family="'DM Sans', sans-serif" font-weight="600" font-size="10.5" fill="#FF7A1A">Top 3 Ranking</text>
+  </g>
+
+  <!-- Floating Chip: "24/7 Leads" -->
+  <g transform="translate(260, 280)">
+    <rect width="180" height="50" rx="25" fill="#071A57" stroke="#2E6BFF" stroke-width="1.5"/>
+    <circle cx="25" cy="25" r="14" fill="#FF7A1A"/>
+    <path d="M19 25 L23 29 L31 21" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="48" y="24" font-family="'Sora', sans-serif" font-weight="800" font-size="12" fill="#ffffff">Qualified Leads</text>
+    <text x="48" y="38" font-family="'DM Sans', sans-serif" font-weight="600" font-size="10.5" fill="#E6EEFF">High Buyer Intent</text>
+  </g>
+</svg>
