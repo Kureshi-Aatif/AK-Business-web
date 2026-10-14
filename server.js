@@ -1,20 +1,19 @@
 import express from 'express';
-const path = import ('path');
-const compression = import ('compression');
-const morgan = import ('morgan');
-const cookieParser = import ('cookie-parser');
-const config = import ('./server/config');
-const {
+import path from 'path';
+import compression from 'compression';
+import morgan from 'morgan';
+import cookieParser from 'cookie-parser';
+import config from './server/config.js';
+import {
   helmetMiddleware,
   nonceMiddleware,
   enforceHttpsAndCanonical,
   globalRateLimiter,
   getCsrfToken
-} = import ('./server/security');
+} from './server/security.js';
 
 // Initialize database & automated daily backups
-import('./server/db');
-
+import './server/db.js';
 const app = express();
 
 // Disable x-powered-by header
