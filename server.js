@@ -1,19 +1,19 @@
-const express = require('express');
-const path = require('path');
-const compression = require('compression');
-const morgan = require('morgan');
-const cookieParser = require('cookie-parser');
-const config = require('./server/config');
+import express from 'express';
+const path = import ('path');
+const compression = import ('compression');
+const morgan = import ('morgan');
+const cookieParser = import ('cookie-parser');
+const config = import ('./server/config');
 const {
   helmetMiddleware,
   nonceMiddleware,
   enforceHttpsAndCanonical,
   globalRateLimiter,
   getCsrfToken
-} = require('./server/security');
+} = import ('./server/security');
 
 // Initialize database & automated daily backups
-require('./server/db');
+import('./server/db');
 
 const app = express();
 
@@ -85,9 +85,9 @@ app.use((req, res, next) => {
 });
 
 // Mount Routes
-const siteRoutes = require('./server/routes/site');
-const apiRoutes = require('./server/routes/api');
-const adminRoutes = require('./server/routes/admin');
+const siteRoutes = import ('./server/routes/site');
+const apiRoutes = import ('./server/routes/api');
+const adminRoutes = import ('./server/routes/admin');
 
 app.use('/api', apiRoutes);
 app.use(config.adminRoutePath, adminRoutes);
